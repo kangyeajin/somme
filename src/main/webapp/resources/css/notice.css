@@ -1,0 +1,82 @@
+*{
+  margin:0;
+ padding: 0;
+  }
+  #main h1{
+  margin: 0 auto;
+  font-size: 15px;
+  width: 200px;
+  border-bottom:solid 1px #a1a1a1;
+  font:bold;
+}
+
+#main{
+  font-family: 'RIDIBatang';
+  width: 1200px;
+  margin: 0 auto;
+}
+#table_box{
+  padding-top: 40px;
+  padding-left: 70px;
+}
+body #main{
+  text-align: center;
+}
+
+
+
+#title_box {
+  margin-top: 80px;
+  margin-bottom: 20px;
+  padding-right: 50px;
+
+}
+
+#main_box {
+  position : relative;
+  width: 990px;
+  display: inline-block;
+}
+
+
+#main_footer {
+  position : relative;
+  top: 50px;
+  width: 1000px;
+  display: inline-block;
+}
+
+
+#main_footer_box{
+  text-align: center;
+  /* border: solid 3px #a1a1a1; */
+}
+#main_footer_box div{
+  display: inline-block;
+}
+#btn_creat{
+  padding-left: 250px;
+}
+#input{
+  margin: 0 auto;
+  padding-right: 50px;
+}
+th, td{
+  font-size: 15px;
+  height: 50px;
+}
+#btn_creat button,#input button{
+  font-family: 'RIDIBatang';
+  padding: 3px 30px;
+}
+
+
+#main_footer #main_footer_box #btn_pge {
+  /* border: solid 1px red; */
+  width: 150px;
+  margin-left: 200px;
+}
+
+#qSearchForm{
+	padding-top:50px;
+}

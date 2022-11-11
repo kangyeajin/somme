@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.MemberMapper">
+
+		<sql id="criteria">
+     	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+     	  <foreach item="type" collection="typeArr">
+     	  	<trim prefix="OR">
+     	  	  <choose>
+     	  	    <when test="type == 'I'.toString()">
+     	  	    	id like '%'||#{keyword}||'%'
+     	  	    </when>
+     	  	    <when test="type == 'N'.toString()">
+     	  	    	name like '%'||#{keyword}||'%'
+     	  	    </when>
+     	  	    <when test="type == 'P'.toString()">
+     	  	    	phone like '%'||#{keyword}||'%'
+     	  	    </when> 
+     	  	     <when test="type == 'U'.toString()">
+     	  	    	useyn like '%'||#{keyword}||'%'
+     	  	    </when>
+     	  	  </choose>
+     	  	</trim>
+     	  </foreach>
+     	</trim>
+	</sql>
+
+<resultMap type="com.wine.model.MemberVO" id="memberMap">
+    
+    <id property="id" column="id"/>
+    
+    <result property="id" column="id"/>
+    <result property="pwd" column="pwd"/>
+    <result property="name" column="name"/>
+    <result property="email" column="email"/>
+    <result property="zipNum" column="zipNum"/>
+    <result property="addr1" column="addr1"/>
+    <result property="addr2" column="addr2"/>
+    <result property="phone" column="phone"/>
+    <result property="bdate" column="bdate"/>
+    <result property="agree1" column="agree1"/>
+    <result property="agree2" column="agree2"/>
+    <result property="useyn" column="useyn"/>
+    <result property="indate" column="indate"/>
+    
+    <collection property="authList" resultMap="authMap"></collection>
+    
+</resultMap>
+
+  <resultMap type="com.wine.model.AuthVO" id="authMap">
+    <result property="id" column="id"/>
+    <result property="auth" column="auth"/>
+  </resultMap>
+  
+  
+<!-- 회원가입 -->
+<insert id ="insertKaMember">
+	insert into member(id, pwd, name, email, zipNum,addr1,addr2, phone,bdate,agree1,agree2) 
+	values(#{id},#{pwd},#{name},#{email},#{zipNum},#{addr1},#{addr2},#{phone},#{bdate},#{agree1},#{agree2})
+</insert>
+<!-- 카카오회원가입 -->
+<insert id ="inserkakao">
+	insert into member(id, pwd, name) 
+	values(#{id},#{pwd},#{name})
+</insert>
+<insert id ="insertMember">
+	insert into member(id, pwd, name, email, zipNum,addr1,addr2, phone,bdate,agree1,agree2) 
+	values(#{id},#{pwd},#{name},#{email},#{zipNum},#{addr1},#{addr2},#{phone},#{bdate},#{agree1},#{agree2})
+</insert>
+<insert id ="insertAuth">
+	insert into member_auth (id, auth) values (#{id},'ROLE_MEMBER')
+</insert>
+<select id="getMember" resultType="com.wine.model.MemberVO">
+	<![CDATA[select * from member where id=#{id}]]>
+</select>
+<!-- 로그인 -->
+<select id="signIn" resultType="com.wine.model.MemberVO">
+	select * from member where id = #{id} and pwd = #{pwd} and useyn ='y'
+</select>
+<!-- 아이디 찾기 -->
+<select id="selectIdByName" resultType="com.wine.model.MemberVO">
+	select * from member where name =#{name} and phone =#{phone} and useyn ='y'
+</select>
+<!-- 비밀번호 찾기 -->
+<select id="selectPWById" resultType="com.wine.model.MemberVO">
+	select * from member where id=#{id} and name =#{name} and email =#{email} and useyn ='y'
+</select>
+<!-- 정보 수정 -->
+<update id="updateMember">
+	update member set pwd=#{pwd}, name=#{name}, email=#{email}, zipNum=#{zipNum}, 
+	addr1=#{addr1}, addr2=#{addr2},  phone=#{phone}, bdate=#{bdate}, agree1=#{agree1}, agree2=#{agree2} where id=#{id}
+</update>
+<!-- 탈퇴(y에서 n으로)-->
+<update id="deleteMember">
+	update member set useyn = 'N' where id=#{id}
+</update>
+<!-- 카카오 계정 삭제-->
+<delete id="deleteKakaoMember">
+	delete member where id =#{id}
+</delete>
+
+	<!-- 전체 회원 출력 -->
+	<select id="listAllMember" resultType="com.wine.model.MemberVO" >
+		<![CDATA[select * from member order by indate desc]]>
+	</select>
+	
+	<!-- 관리자 회원 다중삭제 -->
+	<delete id="multiMemberDelete">
+		<![CDATA[delete from member where id=#{id}]]>
+	</delete>
+	
+	<select id="adminMemberPage" resultType="com.wine.model.MemberVO">
+	<![CDATA[
+	select
+	 id, name, bdate, phone, email, zipnum, addr1, addr2, indate, useyn
+	from(select 
+		 rownum rn, id, name, bdate, phone, email, zipnum, addr1, addr2, indate, useyn
+		from member
+		where
+		]]>
+		<include refid="criteria"></include>
+		<![CDATA[
+		rownum <= #{pageNum} * #{amount})
+		where rn > (#{pageNum}-1) * #{amount}
+		]]>
+	</select>
+	<select id="getTotalCount" resultType="int">
+		<![CDATA[select count(*) from member where]]>
+		<include refid="criteria"></include>
+		<![CDATA[rownum > 0]]>
+	</select>
+
+  <select id="read" resultMap="memberMap">
+SELECT 
+  mem.id, pwd, name, email,zipNum,addr1,addr2,phone,bdate,agree1,agree2, useyn, indate, auth
+FROM 
+  member mem LEFT OUTER JOIN member_auth auth on mem.id = auth.id 
+WHERE mem.id = #{id} 
+  </select>
+  <!-- 비번 변경 -->
+  <update id="updatePassword">
+	update member set pwd = #{npwd} where id=#{id}
+</update>
+  
+</mapper>

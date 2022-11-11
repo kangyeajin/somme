@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.CartMapper">
+
+	<!-- 회원 아이디로 전체 제품목록 얻어오기 -->
+	<select id="selectCartByuserid" resultType="com.wine.model.CartVO" >
+		<![CDATA[ SELECT * FROM cart, product
+				  WHERE cart.prodno = product.prodno 
+				  and cart.userid = #{userid}
+				  and ( cart.result = '1' or cart.result = '3')]]>
+	</select>
+	
+	<!-- 회원 아이디로 payment가 진행 된(result가 2인) 제품 목록 가져오기 -->
+	<select id="selectPaymentByuserid" resultType="com.wine.model.CartVO" >
+		<![CDATA[ SELECT * FROM cart, product
+				  WHERE cart.prodno = product.prodno
+				  and cart.userid = #{userid}
+				  and result = '2']]>
+	</select>
+
+	<!-- 회원 아이디로 check된(cartno에 맞는) 제품 목록 가져오기 -->
+	<select id="selectcheckList" resultType="com.wine.model.CartVO" >
+		<![CDATA[ SELECT * FROM cart, product
+				  WHERE cart.prodno = product.prodno
+				  and cart.cartno = #{cartno}]]>
+	</select>
+	
+	<!-- 전체 cart 조회 -->
+	<select id="selectCartAll" resultType="com.wine.model.CartVO" >
+		<![CDATA[ select * from cart order by cartno desc ]]>
+	</select>
+	
+	<!-- insert -->
+	<insert id="addCart">
+		<![CDATA[insert into cart values (cart_seq.nextval, #{userid}, #{prodno}, #{no}, default)]]>
+	</insert>
+	
+	<!-- 카트 삭제 -->
+	<delete id="deleteCart">
+		<![CDATA[delete cart where cartno = #{cartno}]]>
+	</delete>
+	
+	<!-- 전체 카트 삭제-->
+	<delete id="deleteAllCart">
+		<![CDATA[delete cart where userid = #{userid}]]>
+	</delete>
+	
+	<!-- 카트 수량 수정 -->
+	<update id="modifyCount">
+		<![CDATA[update cart set no=#{no} where cartno= #{cartno} ]]>
+	</update>
+	
+	<!-- 체크한 장바구니 번호의 result값 3으로 수정 -->
+	<update id="modifyCountANDResult">
+		<![CDATA[update cart set result = 3 where cartno= #{cartno}]]>
+	</update>
+	
+	<!-- 회원 아이디로 배송정보 얻어오기  -->
+	<select id="selectAddrByuserid" resultType="com.wine.model.CartVO">
+		<![CDATA[ SELECT * FROM cart, member 
+				  WHERE cart.userid = member.id 
+				  and cart.userid = #{userid} ]]>
+	</select>
+	
+	<!-- 카트 확인 - 회원정보와 상품 정보를 넘겨서 해당하는 row가 있는지 확인  -->
+	<select id="checkCart" resultType="com.wine.model.CartVO">
+		<![CDATA[ select * from cart where userid = #{userid} and prodno = #{prodno} ]]>
+	</select>
+	
+	<!-- 주문 확인 - 회원정보와 상품 정보를 넘겨서 해당하는 row가 있는지 확인  -->
+	<select id="checkPayment" resultType="com.wine.model.CartVO">
+		<![CDATA[ select * from order_detail where userid = #{userid} and prodno = #{prodno} ]]>
+	</select>
+	
+	<!-- detail페이지에서 기존 수량에 수량 추가 -->
+	<update id="updateCart">
+		<![CDATA[update cart set no= #{newNo} where cartno= #{cartno}]]>
+	</update>
+
+	<!-- 회원 아이디로 배송정보 얻어오기  -->
+	<select id="sumPrice" resultType="com.wine.model.CartVO">
+		<![CDATA[ select SUM(cart.no*product.price) as sumPrice , SUM(cart.no) as sumNo
+		          from cart, product where product.prodno = cart.prodno and cart.userid= #{userid} ]]>
+	</select>
+	
+	<!-- 주문 테이블로 넘어간 카트 삭제 -->
+	<delete id="deleteCartbyuserid">
+		<![CDATA[delete cart where userid = #{userid} and result = '2']]>
+	</delete>
+	
+</mapper>

@@ -1,0 +1,66 @@
+#table {
+  font-family: 'RIDIBatang';
+}
+
+.list {
+    width: 1200px;
+    margin-top: 40px;
+    line-height: 30px;
+  }
+
+  #write {
+    border: 1px solid gray;
+    padding: 3px;
+  }
+
+  .record {
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  th {
+    background-color: lightgray;
+  }
+
+  table td,th {
+    border: #d3d3d3 solid 1px; /* 경계선 색상 스타일 굵기 */
+    padding: 5px; /* 안쪽 여백 */
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+#table a:hover {
+  color : red;
+  text-decoration: underline;
+}
+
+#main_footer {
+  position : relative;
+  top: 50px;
+  width: 1000px;
+  display: inline-block;
+}
+
+
+#main_footer_box{
+  text-align: center;
+  /* border: solid 3px #a1a1a1; */
+}
+#main_footer_box div{
+  display: inline-block;
+}
+
+#btn_creat button,#input button{
+  font-family: 'RIDIBatang';
+  padding: 3px 30px;
+}
+
+
+#main_footer #main_footer_box #btn_pge {
+  /* border: solid 1px red; */
+  width: 240px;
+  margin-bottom : 50px;
+}

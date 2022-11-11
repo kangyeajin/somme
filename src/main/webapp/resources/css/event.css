@@ -1,0 +1,28 @@
+#main{
+  font-family: 'RIDIBatang';
+}
+
+#event{
+  clear: both;
+  text-align: center;
+  font-family: 'RIDIBatang';
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 150px;
+}
+
+#event p{
+  padding-top: 50px;
+  margin-bottom: 20px;
+}
+
+section#event div hr {
+  margin: auto;
+}
+#event ul {
+  list-style: none;
+  margin-top: 40px;
+}
+#event ul li {
+  margin-bottom: 10px;
+}

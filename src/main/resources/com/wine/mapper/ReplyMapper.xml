@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.wine.mapper.ReplyMapper">
+ 
+ <insert id="insertSelectKey">
+	<!-- 변수를 만들어서 key값을 들고온거임! -->
+	<selectKey keyProperty="replyno" order="BEFORE" resultType="long">
+		select reply_seq.nextval from dual
+	</selectKey>
+		insert into reply (replyno, reviewno, reply, replyer, reReplyno)
+ 	values (#{replyno}, #{reviewno}, #{reply}, #{replyer}, #{replyno})
+</insert>
+ 
+ <insert id="insert">
+ 	insert into reply (replyno, reviewno, reply, replyer, nth, reReplyno)
+ 	values (reply_seq.nextval, #{reviewno}, #{reply}, #{replyer}, #{nth}, #{reReplyno})
+ </insert>
+ <update id="reSumUp">
+ 	update reply set reSum = reSum+1 where replyno = #{replyno}
+ </update>
+ <update id="reSumDown">
+ 	update reply set reSum = reSum-1 where replyno = #{replyno}
+ </update>
+ <select id="read" resultType="com.wine.model.ReplyVO">
+ 	select * from reply where replyno = #{replyno}
+ </select>
+ <delete id="delete">
+ 	delete from reply where replyno = #{replyno}
+ </delete>
+ <update id="update">
+ 	update reply set reply = #{reply}, updatedate = sysdate where replyno = #{replyno}
+ </update>
+ 
+ <select id="getListWithPaging" resultType="com.wine.model.ReplyVO">
+ 	<![CDATA[
+ 	select replyno, reviewno, reSum, reply, replyer, replyDate, updatedate, nth, reReplyno
+	from(
+    	select /*+INDEX(reply idx_reply)*/
+        	rownum rn, reviewno, reSum, replyno, reply, replyer, replyDate, updatedate, nth, reReplyno
+        from reply
+        where reviewno = #{reviewno}
+        and replyno > 0
+        and rownum <= #{cri.pageNum} * #{cri.amount}
+    )where rn > (#{cri.pageNum} -1) * #{cri.amount}
+    ]]>
+ </select>
+ <select id="getCountByReviewno" resultType="int">
+ 	<![CDATA[ 
+ 	select count(replyno) from reply where reviewno = #{reviewno}
+    ]]>
+ </select>
+ </mapper>

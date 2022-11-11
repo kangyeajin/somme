@@ -1,0 +1,138 @@
+@charset "UTF-8";
+#body {
+	overflow: visible;
+}
+
+#main {
+	overflow: hidden;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#title {
+	height: 70px;
+	margin-top: 30px;
+}
+
+#box1 {
+	width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+	/* border: 1px solid red; */
+}
+
+#box2 {
+	display: inline-block;
+	text-align: center;
+	width: 1300px;
+	/* border: 1px solid red; */
+}
+
+table {
+	display: inline-block;
+	/* border: 1px solid #444444; */
+	border-collapse: collapse;
+}
+
+th, td {
+	height: 50px;
+	/* border: 1px solid #444444; */
+}
+
+#box1-1 {
+	display: inline-block;
+	text-align: center;
+	margin-top: 100px;
+	width: 700px;
+}
+
+#box1-1 img {
+	margin: auto;
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+#box1-1-text {
+	display: inline-block;
+	width: 600px;
+	height: 300px;
+	margin-top: 100px;
+}
+
+/* #버튼들 버튼 담은 div임 */
+#button {
+	float: right;
+	margin-bottom: 10px;
+}
+
+#btn2 {
+	margin-top: 50px;
+}
+
+#button button {
+	padding: 3px 30px;
+}
+
+#btn3 button {
+	padding: 3px 30px;
+}
+
+#popup {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	position: fixed;
+	/* width: 150px; */
+	/* height: 100px; */
+	z-index: 1;
+	margin-left: 965px;
+	margin-top: -38px;
+}
+
+#popup p:not(#x), #popup hr {
+	margin-bottom: 5px;
+}
+
+#popup #x {
+	float: right;
+	/* margin-bottom: 5px; */
+}
+
+#popup.hide {
+	display: none;
+	position: absolute;
+}
+
+.content button {
+	all: unset;
+	margin: 5px;
+}
+
+#popup .content {
+	padding: 10px;
+	background: rgb(255, 255, 255);
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+}
+
+#dot span {
+	padding: 7px 15px;
+	border-radius: 50%;
+	/* background-size: 1px 1px; */
+}
+
+#dot span:hover {
+	background-color: rgba(0, 0, 0, 0.089);
+	/* color:#fff; */
+	transition: all 0.5s;
+}
+
+@font-face {
+	font-family: 'RIDIBatang';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff')
+		format('woff');
+	font-family: 'Molle';
+	src: url('fonts/Molle-Italic.ttf') format('truetype');
+}

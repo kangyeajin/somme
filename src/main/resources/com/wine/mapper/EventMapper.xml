@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.EventMapper">
+
+	<resultMap type="com.wine.model.AttachVO" id="AttachVO">
+		<result column="uuid" property="uuid" jdbcType="VARCHAR" />
+		<result column="uploadPath" property="uploadPath" jdbcType="VARCHAR" />
+		<result column="fileName" property="fileName" jdbcType="VARCHAR" />
+		<result column="fileType" property="fileType" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap type="com.wine.model.EventVO" id="EventVO">
+		<result column="eventno" property="eventno" jdbcType="VARCHAR" />
+		<result column="subject" property="subject" jdbcType="VARCHAR" />
+		<result column="url" property="url" jdbcType="VARCHAR" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="popimg" property="popimg" jdbcType="VARCHAR" />
+		<result column="indate" property="indate" jdbcType="VARCHAR" />
+		<result column="upload" property="upload" jdbcType="VARCHAR" />
+		<collection property="attachVO" resultMap="AttachVO" />
+	</resultMap>
+	<select id="getList" resultMap="EventVO">
+		select *
+		from event E LEFT JOIN attach A ON E.eventno = A.eventno order by
+		upload desc, E.eventno desc
+	</select>
+	<insert id="insert">
+		insert into event (eventno, subject, url, img,
+		popimg)
+		values(event_seq.nextval, #{subject}, #{url, jdbcType=VARCHAR},
+		#{img, jdbcType=VARCHAR}, #{popimg, jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelectKey">
+		<!-- 변수를 만들어서 key값을 들고온거임! -->
+		<selectKey keyProperty="eventno" order="BEFORE"
+			resultType="long">
+			select event_seq.nextval from dual
+		</selectKey>
+		insert into event (eventno, subject, url, img, popimg)
+		values(#{eventno}, #{subject}, #{url, jdbcType=VARCHAR}, #{img,
+		jdbcType=VARCHAR}, #{popimg, jdbcType=VARCHAR})
+		<!-- ${}얘가 물음표에 set까지 해줌 -->
+	</insert>
+	<delete id="delete">
+		delete event where eventno=#{eventno}
+	</delete>
+	<update id="upload">
+		update event set upload = #{upload} where eventno =
+		#{eventno}
+	</update>
+	<select id="uploadList" resultMap="EventVO">
+		select * from event E LEFT JOIN attach A ON E.eventno = A.eventno WHERE upload = 2 order by E.eventno desc
+	</select>
+	<select id="getDetail" resultType="com.wine.model.EventVO">
+		select * from event where eventno = #{eventno}
+	</select>
+	<update id="update">
+		update event set subject=#{subject, jdbcType=VARCHAR}, url=#{url, jdbcType=VARCHAR}, img=#{img, jdbcType=VARCHAR}, popimg=#{popimg, jdbcType=VARCHAR} where eventno=#{eventno}
+	</update>
+</mapper>

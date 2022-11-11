@@ -1,0 +1,234 @@
+@charset "UTF-8";
+#main {
+	text-align: center;
+}
+
+#title {
+	height: 70px;
+	margin-top: 30px;
+}
+
+#box1 {
+	display: inline-block;
+	text-align: center;
+	width: 1200px;
+}
+
+#box2 {
+	display: inline-block;
+	text-align: center;
+	width: 1000px;
+}
+
+table {
+	display: inline-block;
+	/* border: 1px solid #444444; */
+	border-collapse: collapse;
+}
+
+th, td {
+	height: 50px;
+	/* border: 1px solid #444444; */
+}
+
+#box1-1 {
+	display: inline-block;
+	text-align: center;
+	margin-top: 100px;
+	width: 700px;
+}
+
+#box1-1 img {
+	margin: auto;
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+#box1-1-text {
+	display: inline-block;
+	width: 600px;
+	height: 200px;
+	margin-top: 70px;
+}
+
+/* #버튼들 버튼 담은 div임 */
+#button {
+	margin-bottom: 50px;
+}
+
+#btn2 {
+	margin-top: 50px;
+}
+
+#button button {
+	padding: 3px 30px;
+}
+
+#btn3 button {
+	padding: 3px 30px;
+}
+
+#popup {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	position: fixed;
+	/* width: 150px; */
+	/* height: 100px; */
+	z-index: 1;
+	margin-left: 1065px;
+	margin-top: -38px;
+}
+
+#popup p:not(#x), #popup hr {
+	margin-bottom: 5px;
+}
+
+#popup #x {
+	float: right;
+	/* margin-bottom: 5px; */
+}
+
+#popup.hide {
+	display: none;
+	position: absolute;
+}
+
+.content button {
+	all: unset;
+	margin: 5px;
+}
+
+#popup .content {
+	padding: 10px;
+	background: rgb(255, 255, 255);
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+}
+
+#dot span {
+	padding: 7px 15px;
+	border-radius: 50%;
+	/* background-size: 1px 1px; */
+}
+
+#dot span:hover {
+	background-color: rgba(0, 0, 0, 0.089);
+	/* color:#fff; */
+	transition: all 0.5s;
+}
+.td1{
+	 width: 200px; 
+	 background-color:#f4f4f4;
+}
+.td2{
+	width:800px;
+	 text-align:left; 
+	 padding-left:40px;
+}
+#list button{
+	padding: 3px 30px; 
+	margin:0 0 50px 50px;
+}
+#replyDiv{
+	width:1000px;
+	margin:0 auto 30px auto;
+	background-color:#f4f4f4;
+	padding-bottom: 30px;
+}
+
+.title{
+	position: relative;
+	float:left;
+	bottom: 32px;
+	left:120px;
+}
+
+#textareaDiv{
+	width: 800px;
+	padding: 20px 0 5px 0;
+	margin: 20px auto;
+	border: 1px solid #868686;
+	background-color: white;
+}
+
+#textareaDiv span{
+	float:left;
+	padding: 0 0 10px 25px;
+}
+
+#replyDiv textarea{
+	width: 750px;
+	height: 50px; 
+	border: 1px solid rgb(255, 255, 255); 
+	padding: 7px;
+}
+
+#replyDiv button{
+	float:right;
+	padding: 3px 30px; 
+	margin:17px 0;
+}
+.panel-body{
+	width: 775px;
+	margin: 0 auto;
+}
+
+.panel-body ul>li:nth-child(1){
+	font-weight: bold;
+    margin-right: 20px;
+    width: 110px;
+    text-align: left;
+	float: left;
+}
+
+.panel-body ul>li:nth-child(2){
+	text-align: left;
+	float: left;
+}
+
+.panel-body ul>li:nth-child(3){
+	text-align: right;
+	color: #868686;
+}
+
+.panel-body ul{
+	padding: 5px 0 20px 0;
+}
+
+.panel-body{
+	padding: 20px 0 5px 80px;
+	margin-bottom: 7px;
+    margin-left: 30px;
+}
+
+.reply-content img:nth-child(1){
+	padding-left:7px;
+}
+
+.clearfix {
+	position: relative;
+	top: 3px;
+}
+.reply-content img{
+	position: relative;
+	top:4px;
+	width: 17px;
+	height: 17px;
+}
+
+.reply-content img:hover{
+	cursor: pointer;
+}
+
+.page-item{ 
+	width:900px;
+	margin: 0 auto;
+	display: inline;
+}
+
+.rechat .chat{
+	margin-left:30px;
+	color:#7e7e7e;
+}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.ProductMapper">
+
+	<sql id="criteria">
+     	<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+     	  <foreach item="type" collection="typeArr">
+     	  	<trim prefix="OR">
+     	  	  <choose>
+     	  	    <when test="type == 'N'.toString()">
+     	  	    	name_kr like '%'||UPPER(#{keyword})||'%'
+     	  	    </when>
+     	  	    <when test="type == 'E'.toString()">
+     	  	    	name_en like '%'||UPPER(#{keyword})||'%'
+     	  	    </when>
+     	  	    <when test="type == 'K'.toString()">
+     	  	    	kind like '%'||UPPER(#{keyword})||'%'
+     	  	    </when> 
+     	  	     <when test="type == 'C'.toString()">
+     	  	    	kind_con like '%'||UPPER(#{keyword})||'%'
+     	  	    </when>
+     	  	  </choose>
+     	  	</trim>
+     	  </foreach>
+     	</trim>
+	</sql>
+
+	<select id="adminProdPage" resultType="com.wine.model.ProductVO">
+	<![CDATA[
+	select
+	prodno, name_kr, name_en, kind, kind_con, price, mainprod
+	from(select /*+INDEX_DESC(product pk_prodno)*/
+		rownum rn, prodno, name_kr, name_en, kind, kind_con, price, mainprod
+		from product
+		where
+		]]>
+		<include refid="criteria"></include>
+		<![CDATA[
+		rownum <= #{pageNum} * #{amount})
+		where rn > (#{pageNum}-1) * #{amount}
+		]]>
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		<![CDATA[select count(*) from product where]]>
+		<include refid="criteria"></include>
+		<![CDATA[prodno > 0]]>
+	</select>
+	
+	<!-- main에서 사용되는 상품 출력 -->
+	<select id="selectMainProducts" resultType="com.wine.model.ProductVO" >
+		<![CDATA[select * from product where mainprod = 'O']]>
+	</select>
+	
+	<!-- 전체 상품 출력 -->
+	<select id="selectAllProducts" resultType="com.wine.model.ProductVO" >
+		<![CDATA[select * from product order by prodno desc]]>
+	</select>
+	
+	<!-- 개별 상품 출력 -->
+	<select id="selectProductByCode" resultType="com.wine.model.ProductVO" >
+		<![CDATA[select * from product where prodno = #{prodno}]]>
+	</select>
+	
+	<!-- 종류별 상품 출력 kind -->
+	<select id="listKindProduct" resultType="com.wine.model.ProductVO" >
+		<![CDATA[select * from product where kind = #{kind}]]>
+	</select>
+	
+	<!-- 국가별 상품 출력 kind_con -->
+	<select id="listKind_conProduct" resultType="com.wine.model.ProductVO" >
+		<![CDATA[select * from product where kind_con = #{kind_con}]]>
+	</select>
+	
+	<!-- 상품 이름으로 검색 조회 -->
+	<select id="listProductSearch" resultType="com.wine.model.ProductVO" >
+		<![CDATA[select * from product where name_kr like '%'|| #{name_kr}||'%' or name_en like '%'||#{name_en}||'%']]>
+	</select>
+	
+	<!-- insert -->
+	<insert id="insertProduct">
+		<![CDATA[insert into product values(product_seq.nextval, #{name_kr}, #{name_en}, #{kind}, #{kind_con}, #{price}, #{content_1}, #{content_2}, #{image}, #{mainprod})]]>
+	</insert>
+	
+	<!-- delete -->
+	<delete id="deleteProduct">
+		<![CDATA[delete product where prodno= #{prodno}]]>
+	</delete>
+	
+	<!-- update -->
+	<update id="updateProduct">
+		<![CDATA[update product set name_kr=#{name_kr}, name_en=#{name_en}, kind=#{kind}, 
+				kind_con=#{kind_con}, price=#{price}, content_1=#{content_1}, content_2=#{content_2, jdbcType=VARCHAR}, 
+				image=#{image, jdbcType=VARCHAR}, mainprod=#{mainprod} where prodno=#{prodno}]]>
+	</update>
+	
+	<!-- multiDelete -->
+	<delete id="multiDelete">
+		<![CDATA[delete from product where prodno=#{prodno}]]>
+	</delete>
+	
+</mapper>

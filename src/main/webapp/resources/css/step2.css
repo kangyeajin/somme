@@ -1,0 +1,97 @@
+#btn_div{
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+#btn {
+  font-family: 'RIDIBatang';
+  width: 150px;
+  height: 40px;
+  border-radius: 3px;
+  margin-right: -4px;
+  border: 1px solid #881824;
+  background-color: rgba(0, 0, 0, 0);
+  color: #881824;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+
+}
+#box{
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom:50px;
+  width: 600px;
+  height: 190px;
+  text-align: center;
+  font-size: 13px;
+
+}
+
+#btn:hover {
+  color: white;
+  background-color: #881824;
+}
+#box_btn{
+  border-radius: 5px 5px 5px 5px;
+  margin-right:-4px;
+  border:1px solid rgb(253, 253, 253);
+  background-color: rgb(70, 70, 70);
+  color:rgb(253, 253, 253);
+  padding: 5px;
+  font-size: 15px;
+}
+#box_btn:hover{
+  color: rgb(253, 253, 253);
+  background-color:  rgb(112, 112, 112);
+}
+#title{
+
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 30px;
+
+}
+#title span{
+  font-size: 13px;
+  padding-left: 10px;
+
+}
+#title_1{
+  font-weight: bolder;
+  text-decoration: underline;
+}
+#title div{
+  padding-top: 20px;
+}
+
+#address{
+  width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+#address input{
+  margin-top: 5px;
+}
+/* 마이페이지에서 가져온 css */
+
+
+#container table {
+  line-height: 35px;
+  /* padding: 70px 30px ; */
+  width: 600px;
+  margin: 0 auto;
+}
+
+#container input[type="text"], [type="date"],
+[type="password"],[type="email"] {
+  width:600px;
+  height:27px;
+}
+
+#container button {
+  width:40px;
+  height:25px;
+}
+

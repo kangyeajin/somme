@@ -1,0 +1,50 @@
+footer{
+  clear: both;
+  font-family: 'RIDIBatang';
+  font-weight: lighter;
+  font-style:normal;
+  font-size: 12px;
+  height: 100px;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+footer div#footer{
+  border: 1px solid #881824;
+  background-color: #881824;
+  padding-bottom: 20px;
+  padding-top: 30px;
+  color: white;
+  padding-left: 20%;
+}
+
+footer div ul {
+  list-style: none;
+  text-align: left;
+}
+
+footer div ul :first-child {
+  font-size: 14px;
+}
+
+#time{
+  float: left;
+  margin-right: 100px;
+}
+
+#company{
+  display: inline-block;
+}
+
+footer a#logo {
+  position:absolute;
+  font-family: 'Molle';
+  font-size: 350%;
+  color: white;
+  display: inline-table !important;
+  padding-top: 30px !important;
+  padding-bottom: 10px !important;
+  padding-left: 200px;
+}

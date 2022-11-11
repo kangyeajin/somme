@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #444444;
+}
+
+.clear {
+    clear: both;
+}
+
+header #top {
+    width: 100%;
+    margin: 0 auto;
+}
+
+header #logo {
+    float: left;
+    margin: 30px 0 10px 0;
+}
+
+/* 상단 */
+.right_button {
+    width: 25px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    vertical-align: top !important;
+}
+
+header #top_menu {
+    margin-block-end: 30px;
+    padding-left: 78%;
+    padding-top: 60px;
+}
+header #top_menu ul {
+    padding-right: 100px;
+    padding-left: 10%;
+}
+
+header #top_menu li {
+    display: table-cell!important;
+    padding-left: 20px;
+}
+
+header a#logo {
+    font-family: 'Molle', cursive;
+    font-size: 350%;
+    color: black;
+    display: inline-table !important;
+    padding-top: 30px !important;
+    padding-bottom: 10px !important;
+    padding-left: 18%;
+}
+
+/* 메인메뉴 */
+header #main_menu {
+    display: inline-block !important;
+    background-color: #881824 !important;
+    width: 100% !important;
+    height: 70px !important;
+    text-align: center !important;
+}
+
+header #main_menu ul {
+    width: 100%;
+    margin: auto;
+    padding-top: 22px;
+    text-align: center;
+}
+
+/* header #main_menu li {
+    display: inline;
+    margin: 0 50px;
+} */
+
+header #main_menu a {
+    font-family: 'RIDIBatang';
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* ---------------- */
+header .main_menu2 {
+    float: left;
+
+    width: 100%;
+    /* overflow: hidden; */
+}
+
+header .main_menu2>li {
+    position: relative;
+    display: inline;
+    margin: 0 20px;
+    padding: 20px 40px;
+    width: 10%;
+    box-sizing: border-box;
+    line-height: 2px;
+    text-align: center;
+}
+
+header .main_menu2>li:hover {
+    font-weight: bold;
+}
+
+header .main_menu2>li:hover .sub {
+    display: block;
+}
+
+/* header .menu>li a {
+    width: 100%;
+    transition: all 0.3s;
+} */
+
+@keyframes dropdown {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+header .sub {
+    animation-name: dropdown;
+    animation-duration: 500ms;
+    animation-direction: normal;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 1;
+    width: 300px;
+    background: #88182383;
+    /* opacity: 0.8; */
+    transition: all 0.5s;
+}
+
+header .sub>li>a:hover {
+    background-color: #881823c0;
+}
+
+header .sub>li>a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 2;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+body header{
+    height: 220px;
+}
+/* 검색창 */
+
+
+:focus{outline: none;}
+
+.input-container{
+    float: right;
+    width: 20%;
+    position: relative;
+    bottom: 5px;
+} 
+
+#header input[type="text"] {
+  font: 15px/24px "RIDIBatang", Arial, sans-serif;
+  color: black;
+  width: 190px;
+  letter-spacing: 1px;
+  border: none;
+  background: transparent;
+}
+
+#header .effect-1~.focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  width: 0;
+  height: 2px;
+  background-color: #F78181;
+  transition: 0.4s;
+}
+
+#header .effect-1:focus~.focus-border {
+  width: 50%;
+  transition: 0.4s;
+}
+
+
+#header .input-container input::-ms-input-placeholder { color: #848484; }
+#header .input-container input::-webkit-input-placeholder { color: #848484; }
+#header .input-container input::-moz-placeholder { color: #848484; }
+
+
+/* 검색창2 */
+
+.input-container2{
+    float: left;
+    width: 20%;
+    position: relative;
+    bottom: 18px;
+}
+
+#header .input-container2 input[type="text"] {
+  font: 15px/24px "RIDIBatang", Arial, sans-serif;
+  color: white;
+  width: 190px;
+  letter-spacing: 1px;
+  border: none;
+  background: transparent;
+}
+
+#header .effectt-1~.focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 73px;
+  width: 0;
+  height: 2px;
+  background-color: #F78181;
+  transition: 0.4s;
+}
+
+#header .effectt-1:focus~.focus-border {
+  width: 50%;
+  transition: 0.4s;
+}
+
+#header .input-container2 input::-ms-input-placeholder { color: #ECECEC; }
+#header .input-container2 input::-webkit-input-placeholder { color: #ECECEC; }
+#header .input-container2 input::-moz-placeholder { color: #ECECEC; }
+
+
+
+
+#header #main_menu3 {
+   display:none;
+}
+
+.imgFixed {
+   position: absolute;
+     right: 7%;
+     bottom:15px;
+     opacity:1;
+     transition: all 1s;
+   display:block !important;
+}
+
+#header #main_menu3>li{
+   float: right;
+    margin-right: 20px;
+}
+
+#header .jbFixed {
+   position: fixed;
+   z-index: 9;
+   top: 0px;
+   height: 1px;
+}
+
+.input-container2{
+   display:none;
+}
+.searchFixed{
+   position: absolute;
+   display:block !important;
+}

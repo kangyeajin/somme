@@ -1,0 +1,87 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 수정 */
+#login p a{
+    font-family: 'RIDIBatang';
+    text-align: center;
+    float : right;
+    margin-right: 6px;
+    font-size: 13px;
+    border: 1px solid gray;
+    padding: 2px;
+}
+
+#loginpage h2{
+    font-family: 'RIDIBatang';
+    margin: 60px 0px 0px 0px;
+    text-align: center;
+}
+
+/* 추가 */
+#loginpage{
+    padding: 80.5px 0px;
+}
+
+#loginpage #login{
+    font-family: 'RIDIBatang';
+    width: 540px;
+    margin: 40px auto 80px auto;
+    padding: 50px 46px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: solid 1px #a4a4a4;
+}
+
+#loginpage .login_box{
+    width: 450px;
+}
+
+#loginpage div .login{
+    width: 100%;
+   margin-top: 10px;   
+   margin-bottom: 20px;   
+}
+
+#loginpage div .login input{
+    height: 48px;
+    padding: 0 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#loginpage a{
+   text-decoration: none;
+}
+
+#loginpage input {
+   height: 30px;
+   width: 504px;
+}
+#loginpage fieldset {
+   text-align: left;
+   margin: 10px auto;
+   width: 700px;
+   border: 0;
+}
+#loginpage #tool{
+    padding-top: 10px;
+    text-align: center;
+}
+
+#loginpage .loginbtn {
+   background-color:#a4a4a4;
+   border-radius:3px;
+   border:1px solid #a4a4a4;
+   display:inline-block;
+   color: #fff !important;
+   font-size:15px;
+   font-weight:bold;
+   padding:16px 37px;
+   text-decoration:none;
+   width: 450px;
+   text-align: center;
+}

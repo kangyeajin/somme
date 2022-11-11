@@ -1,0 +1,309 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#payment_cart{
+  font-family: 'RIDIBatang';
+  margin: auto;
+  width: 1200px;
+  margin-bottom: 300px;
+}
+
+#payment_cart #item_list{
+  margin: auto;
+  margin-top: 100px;
+  border-collapse: collapse;
+  text-align: center;
+  width: 1200px;
+  /* border: solid 1px red; */
+}
+
+#payment_cart #item_list #payment_title td{
+  /* border: solid 1px red; */
+  padding: 10px;
+  background-color: #ebebeb;
+}
+
+#payment_cart #item_list #payment_title td:first-child{
+  /* border: solid 1px red; */
+  width: 600px;
+}
+
+#payment_cart #item_list #payment_val td{
+  /* border: solid 1px red; */
+  padding: 30px;
+  background-color: #ebebeb;
+}
+
+
+#payment_cart #item_list .payment_item {
+  border-bottom: solid 1px #e1e1e1;
+  /* border: solid 1px red; */
+}
+
+.payment_item td:first-child{
+  /* border: solid 1px red; */
+  width: auto;
+  height:150px
+  
+}
+
+.payment_item #item_name{
+  /* border: solid 1px red; */
+  height:150px
+}
+
+.payment_item td:first-child img {
+  border-radius: 50%;
+  width: 150px;
+  filter: drop-shadow(0px 0px 2px #c3c3c3); /*그림자*/
+  max-height: 100%;
+  margin: 30px; 
+}
+
+#payment_addr{
+  border-right: 1px solid #d7d7d7;
+  padding-top: 50px;
+  padding: 30px;
+  float: left;
+  margin-top: 50px;
+  width: 650px;
+}
+
+#payment_addr h3{
+  margin-bottom: 30px;
+}
+
+#payment_addr ul{
+  list-style: none;
+}
+
+#payment_addr ul li p{
+  float: left;
+  margin-right: 50px;
+}
+
+#payment_addr ul label{
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+#payment_addr hr{
+  clear: both;
+  margin-right: 10px;
+  border: 1px solid #a1a1a1;
+}
+
+#payment_self{
+  padding: 30px;
+  float: left;
+  margin-top: 50px;
+  width: 400px;
+  /* border: solid 1px red; */
+  margin-left: 15px;
+  background-color: #f2f2f2;
+
+}
+
+#payment_addr #input{
+  margin-top: 30px;
+  /* border: solid 1px red; */
+  width: 600px;
+  float: left;
+}
+
+#payment_addr #input li#name, #payment_addr #input li#tel{
+  margin-bottom: 20px;
+}
+
+#payment_addr #input li#post{
+  margin-bottom: 5px;
+  float: left;
+}
+
+#payment_addr #input li#post{
+  margin-bottom: 5px;
+  float: left;
+}
+
+#post{
+  color: black;
+}
+
+li#post #address input{
+  margin-bottom: 5px;
+}
+
+li#post #address #guide{
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+li#post #address input[type=button]{
+  color: black;
+  font-size: 12px;
+}
+
+#payment_addr #input li input{
+  padding: 3px 2px;
+  color: black;
+}
+
+#payment_addr li button{
+  clear: both;
+  padding: 1px 3px;
+  margin-left: 200px;
+}
+
+#input p{
+  clear: both;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+#input select{
+  padding: 3px 2px;
+  /* color: #a1a1a1; */
+}
+
+#input #self input{
+  padding: 3px 2px;
+  /* color: #a1a1a1; */
+}
+
+#payment_self h3{
+  margin-bottom: 30px;
+}
+
+#payment_self #self_notice li#name{
+  margin-bottom: 20px;
+  float: left;
+}
+
+#payment_self p{
+  margin-bottom: 20px;
+}
+#payment_self #self_notice li#tel{
+  clear: both;
+  float: left;
+}
+
+#payment_self #self_notice input{
+  font-family: 'RIDIBatang';
+  font-size: 16px;
+  margin-top: -1px;
+  background-color: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  border-bottom: 1px solid gray;
+}
+
+#payment_last{
+  /* border: solid 1px red; */
+  width: 650px;
+  clear: both;
+  padding: 30px;
+  padding-top: 50px;
+  /* float: left; */
+}
+
+#payment_last h3{
+  margin-bottom: 30px;
+}
+
+#payment_last hr{
+  clear: both;
+  margin-right: 5px;
+  border: 1px solid #a1a1a1;
+  /* width: 640px; */
+  margin-bottom: 30px;
+}
+
+#payment_last #box{
+  border: solid 1px #a1a1a1;
+  /* background-color: #ffffff; */
+  width: 500px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#payment_last #box #first{
+  float: right;
+}
+
+#payment_last #pay{
+  border-color: #f2f2f2;
+  background-color: #f2f2f2;
+  width: 500px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#payment_last #pay p{
+  margin-bottom: 20px;
+}
+
+#payment_last #pay div{
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+#payment_cart #next{
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 80px;
+  clear: both;
+}
+
+#payment_cart #next input{
+  padding: 15px 40px;
+  border-radius: 5px;
+  border: solid 1px gray;
+  clear: both;
+}
+
+#payment_cart #next input:hover {
+background: #e2e2e2;
+}
+
+
+/* clicked수정 */
+
+#pay{
+  clear: both;
+  display: inline-block;
+  margin: auto;
+  width: 540px;
+  margin-left: 40px;
+}
+#div1{
+  margin-bottom: 30px;
+  float: left;
+}
+.div2 {
+  float: left;
+  font-size: 16px;
+  color: #202020;
+  border: 1px solid #a1a1a1;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.clicked{
+  color: white;
+  border-color: #a1a1a1;
+  background: #a1a1a1;
+} 

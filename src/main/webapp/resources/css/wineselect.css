@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #444444;
+}
+
+#wineSelect_start{
+    width: 700px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+#wineSelect_start .logo {
+    font-family: 'Molle';
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+
+#wineSelect_start h2 {
+    color: #f23715;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+#wineSelect_start h4 {
+    font-size: 16px;
+    margin-bottom: 45px;
+}
+
+#wineSelect_start #wineselect_box .image img {
+    margin: 0 auto 50px auto;
+    width: 500px;
+    height: 300px;
+}
+
+#wineSelect_start #wineselect_box button {
+    background: rgb(242, 55, 21);
+    box-shadow: rgb(242 55 21 / 34%) 0px 5px 20px;
+    transition: transform 0.2s ease-in-out 0s, background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+    min-height: 54px;
+    width: 300px;
+    border: 0;
+    outline: 0;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+#wineSelect_start #wineselect_box button:hover {
+    background-color: #fff;
+    color: #444444;
+}
+
+/* main */
+
+#wineSelect_main{
+    width: 700px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+#wineSelect_main .logo {
+    font-family: 'Molle';
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+#wineSelect_main h2 {
+    color: #f23715;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+#wineSelect_main h4 {
+    font-size: 16px;
+    margin-bottom: 45px;
+}
+
+#wineSelect_main #wineselect_box .image img {
+    margin: 0 auto 50px auto;
+    width: 500px;
+    height: 300px;
+}
+
+#wineSelect_main .wineselect_box2 {
+    animation: fadein 0.5s;
+    -moz-animation: fadein 0.5s;
+    /* Firefox */
+    -webkit-animation: fadein 0.5s;
+    /* Safari and Chrome */
+    -o-animation: fadein 0.5s;
+    /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+
+    /* Firefox */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+
+    /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+
+    /* Opera */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#wineSelect_main .wineselect_box2{
+    width: 600px;
+    margin: 0 auto;
+}
+
+#wineSelect_main .wineselect_box2 button {
+    background: rgb(242, 55, 21);
+    box-shadow: rgb(242 55 21 / 34%) 0px 5px 20px;
+    transition: transform 0.2s ease-in-out 0s, background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+    min-height: 54px;
+    width: 480px;
+    margin-bottom: 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#wineSelect_main .wineselect_box2 button:hover {
+    background-color: #fff;
+    color: #444444;
+}
+
+#wineSelect_main #wineselect_box .num{
+    color: #f23715;
+    margin-bottom: 40px;
+    font-size: 35px;
+    font-weight: 500;
+}
+#wineSelect_main #wineselect_box .content{
+    margin-bottom: 70px;
+}
+#wineSelect_main progress {
+    width: 400px;
+    height: 25px;
+    margin-bottom: 30px;
+}
+
+#wineSelect_main progress {
+    appearance: none;
+}
+#wineSelect_main progress::-webkit-progress-bar {
+    background:#f0f0f0;
+    border-radius:30px;
+    box-shadow: inset 3px 3px 10px #ccc;
+}
+#wineSelect_main progress::-webkit-progress-value {
+    border-radius:10px;
+    background: #f23715;
+    background: -webkit-linear-gradient(to right, #ff8d79, #f23715);
+    background: linear-gradient(to right, #ff8d79, #f23715);
+    
+}
+
+/* result */
+#wineselect_result {
+    animation: fadein 3s;
+    -moz-animation: fadein 3s;
+    /* Firefox */
+    -webkit-animation: fadein 3s;
+    /* Safari and Chrome */
+    -o-animation: fadein 3s;
+    /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+
+    /* Firefox */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+
+    /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+
+    /* Opera */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+#wineselect_result {
+    transition: transform 3s ease-in-out 0s;
+    width: 550px;
+    height: 1350px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: rgba(171, 171, 171, 0.66) 0px 5px 20px;
+}
+
+.result_box {
+    /* border-radius: 30px; */
+    /* width: 600px; */
+    margin: 0 auto;
+    height: 500px;
+    border: none;
+    background-color: #f23715;
+    box-shadow: rgb(242 55 21 / 34%) 0px 5px 20px;
+}
+
+.result {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 36% 0;
+    text-align: center;
+    color: #fff;
+}
+
+#result_content {
+    margin-top: 50px;
+}
+
+.title_text li:nth-child(1) {
+    color: #444444;
+    font-weight: bold;
+}
+
+.title_text li:nth-child(2) {
+    margin-top: 10px;
+    color: #f23715;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.title_text li:nth-child(3) {
+    border-bottom: solid 5px #f236155f;
+    width: 40px;
+    margin: 0 auto;
+}
+
+.text {
+    width: 480px;
+    margin: 0 auto 60px auto;
+}
+
+.text li:nth-child(1) {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.text li:nth-child(2) {
+    font-size: 15px;
+    text-align: left;
+}
+
+img {
+    margin-top: 20px;
+    width: 350px;
+    height: 350px;
+}
+
+.wineselect_box2 button {
+    background: rgb(242, 55, 21);
+    box-shadow: rgb(242 55 21 / 34%) 0px 5px 20px;
+    transition: transform 0.2s ease-in-out 0s, background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+    min-height: 50px;
+    width: 350px;
+    margin-bottom: 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.wineselect_box2 button:hover {
+    background-color: #fff;
+    color: #444444;
+}
+
+#wineselect_box span{
+    position: relative;
+    color: #ccc;
+    font-size: small;
+    float: right;
+    bottom: 22px;
+    right: 170px;
+}
+
+#Q1,#Q2,#Q3,#Q4,#Q5,#Q6{
+    display: none;
+}

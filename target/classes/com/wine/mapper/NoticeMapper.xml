@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.NoticeMapper">
+
+	<sql id="criteria">
+		<!-- trim태그는 내부 값이 null이면 구문이 생성되지 않음 -->
+		<!-- 맨앞에 (,  맨뒤에 ) AND 붙여준다. trim문 맨앞에 OR 있으면 지워준다.   -->
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<!-- 전달받은 값 이름 지정, 전달받은 값(List or Array 형태만 가능) -->
+			<foreach item='type' collection='typeArr'>
+				<trim prefix="OR">
+					<choose>
+						<!-- 문자열 비교(한자리씩 떼서 비교) -->
+						<when test="type == 'S'.toString()">
+							subject like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	<select id="getListWithPaging" resultType="com.wine.model.NoticeVO">
+		<![CDATA[
+		select noticeno, subject, id, indate, count
+		from(select /*+INDEX_DESC(notice PK_NOTICE)*/
+				rownum rn, noticeno, subject, id, indate, count
+			from notice
+			where 
+		]]>
+		<include refid="criteria"></include>
+		<![CDATA[
+			rownum<= #{pageNum} * #{amount})
+			where rn > (#{pageNum}-1) * #{amount}
+		]]>
+	</select>
+		<select id="getListA" resultType="com.wine.model.NoticeVO">
+		<![CDATA[
+		select noticeno, subject, id, indate, count
+		from(select /*+INDEX_DESC(notice PK_NOTICE)*/
+				rownum rn, noticeno, subject, id, indate, count
+			from notice
+			where 
+		]]>
+		<include refid="criteria"></include>
+		<![CDATA[
+			rownum<= #{pageNum} * #{amount})
+			where rn > (#{pageNum}-1) * #{amount}
+		]]>
+	</select>
+	<select id="pageTotal" resultType="int">
+		select count(*) from notice where
+		<include refid="criteria"></include>
+		<![CDATA[ 
+		noticeno > 0	]]>
+	</select>
+	<select id="pageTotalA" resultType="int">
+		select count(*) from notice where
+		<include refid="criteria"></include>
+		<![CDATA[ 
+		noticeno > 0	]]>
+	</select>
+	<select id="getPagePrev" resultType="com.wine.model.NoticeVO">
+	<![CDATA[
+		select noticeno, subject from notice where noticeno =
+			(select max(noticeno) from notice where noticeno < #{noticeno})
+	]]>
+	</select>
+		<select id="getPageNext" resultType="com.wine.model.NoticeVO">
+	<![CDATA[
+		select noticeno, subject from notice where noticeno =
+			(select min(noticeno) from notice where noticeno > #{noticeno})
+	]]>
+	</select>
+	<select id="getDetail" resultType="com.wine.model.NoticeVO">
+		select * from notice where noticeno = #{noticeno}
+	</select>
+	<update id="readCount">
+		update notice set count = count+1 where noticeno = #{noticeno}
+	</update>
+	<insert id="insert">
+		insert into notice (noticeno, subject, content, img, id) 
+		values(notice_seq.nextval, #{subject}, #{content}, #{img}, #{id})
+	</insert>
+	<insert id="insertSelectKey">
+	<!-- 변수를 만들어서 key값을 들고온거임! -->
+	<selectKey keyProperty="noticeno" order="BEFORE" resultType="long">
+		select notice_seq.nextval from dual
+	</selectKey>
+		insert into notice (noticeno, subject, content, img, id) 
+		values(#{noticeno}, #{subject, jdbcType=VARCHAR}, #{content, jdbcType=VARCHAR}, #{img, jdbcType=VARCHAR}, #{id})
+		<!-- ${}얘가 물음표에 set까지 해줌 -->
+	</insert>
+	<delete id="delete">
+		delete from notice where noticeno=#{noticeno}
+	</delete>
+	<update id="update">
+		update notice set subject=#{subject, jdbcType=VARCHAR}, content=#{content, jdbcType=VARCHAR}, img=#{img, jdbcType=VARCHAR} where noticeno=#{noticeno}
+	</update>
+</mapper>

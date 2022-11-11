@@ -1,0 +1,109 @@
+*{
+  margin:0;
+  padding: 0;
+}
+
+.review_write_title{
+  font-family: 'RIDIBatang';
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 100px;
+}
+
+form div.review_write_title hr{
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+#review{
+  width: 700px;
+  margin: auto;
+}
+
+table#review_write{
+  font-family: 'RIDIBatang';
+  font-size: 14px;
+  width: 700px;
+}
+
+#review_write, #review_write tr td{
+  border-top: solid 1px black;
+  border-bottom: solid 1px #999;
+  border-collapse: collapse;
+  padding:10px
+}
+
+#review_write td.col1{
+  border-right: solid 1px #999;
+}
+
+#review_write td.col2 input{
+  border: solid 1px rgb(191, 191, 191);
+  padding: 3px 2px;
+  border-radius: 3px; 
+}
+
+#review_write tr.file td.col2 input{
+  border: solid 0px rgb(255, 255, 255);
+  font-size: 12px;
+  font-family: 'RIDIBatang';
+}
+
+#review #button_update button{
+  float: right;
+  margin-top: 10px;
+  font-size: 12px;
+  font-family: 'RIDIBatang';
+  padding: 3px 2px;
+  width: 70px;
+  margin-bottom: 300px;
+}
+
+#current_date {
+  color: rgb(100, 100, 100);
+  word-spacing:2px;
+}
+
+
+.btn-circle{
+	position: relative;
+	left:18px;
+	top:12px;
+	width:20px;
+	hight:30px;
+	padding:3px 11px;
+	background-color:rgba(51, 51, 51, 0.438);
+	border: 0;
+	border-radius:50%;
+}
+.btn-circle:after {
+	position: relative;
+	content : "X";
+	right:4px;
+	color:white;
+}
+
+.btn-circle:hover{
+	background-color:#313131;
+}
+
+/* Q&A */
+select#QandA {
+  width: 450px;
+  border: solid 1px rgb(191, 191, 191);
+  padding: 3px 2px;
+  border-radius: 3px; 
+  font-family:'RIDIBatang';
+}
+
+select#QandA div#self {
+  /* width: 450px; */
+  border: solid 1px rgb(191, 191, 191);
+  padding: 4px 2px;
+  border-radius: 3px; 
+  font-family:'RIDIBatang';
+}
+
+.uploadResult ul li { float: left; margin-right:20px;}

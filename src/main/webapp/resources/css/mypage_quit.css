@@ -1,0 +1,66 @@
+section#mypage_edit1_main{
+    width: 1300px;
+    margin: 0 auto;
+    font-family: "RIDIBatang";
+  }
+  
+  section#right {
+    /* padding-right: 15%; */
+    float:left;
+    margin-left: 10.2%;
+    padding-top: 10px;
+    padding-bottom: 150px;
+    width: 900px;
+  }
+  
+  section#right .pwd_title {
+    /* text-align: center; */
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding-right: 40px;
+  }
+  section#right .pwd_title p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    width: 900px;
+    border-bottom:solid 3px #a1a1a1;
+  }
+  section#right .pwd_chk {
+    width: 600px;
+    margin: 0 auto;
+  }
+
+  section#right .pwd_chk p{
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  section#right .pwd_chk input {
+    width: 500px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 3px;
+    outline: none;
+    padding-left: 10px;
+    color: #a1a1a1;
+    border:solid 1px #a1a1a1;
+  }
+
+  section#right .pwd_chk input:focus {
+    color: black;
+  }
+
+  section#right .pwd_chk_Button{
+  background-color: #a1a1a1;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  display: inline-block;
+  margin: 50px 0 0 300px;
+  border-radius : 5%;
+  }

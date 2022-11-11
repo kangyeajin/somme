@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.QnaMapper">
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+				<choose>
+					<when test="type == 'S'.toString()">
+						subject like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'C'.toString()">
+						content like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'W'.toString()">
+						id like '%'||#{keyword}||'%'
+					</when>
+				</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	<select id="getListWithPaging" resultType="com.wine.model.QnaVO">
+	<![CDATA[
+		select qnano, subject, img, id, re, indate, count
+		from(select /*+INDEX_DESC(qna PK_QNA)*/
+				rownum rn, qnano, subject, img, id, re, indate, count
+			from qna
+			where 
+	]]>	<include refid="criteria"></include>
+	<![CDATA[
+			rownum<= #{pageNum} * #{amount})
+		where rn > (#{pageNum}-1) * #{amount}
+	]]>
+	</select>
+	<select id="getListA" resultType="com.wine.model.QnaVO">
+		<![CDATA[
+		select qnano, subject, img, id, re, indate, count
+		from(select /*+INDEX_DESC(qna idx_re)*/ 
+				rownum rn, qnano, subject, img, id, re, indate, count
+			from qna
+			where 
+	]]>	<include refid="criteria"></include>
+	<![CDATA[
+			rownum<= #{pageNum} * #{amount})
+		where rn > (#{pageNum}-1) * #{amount}
+	]]>
+	</select>
+	<select id="pageTotal" resultType="int">
+		select count(*) from qna where 
+		<include refid="criteria"></include>
+		<![CDATA[
+		qnano > 0	]]>
+	</select>
+	<select id="pageTotalA" resultType="int">
+		select count(*) from qna where 
+		<include refid="criteria"></include>
+		<![CDATA[
+		qnano > 0	]]>
+	</select>
+	<select id="getPagePrev" resultType="com.wine.model.QnaVO">
+	<![CDATA[
+		select qnano, subject, re from qna where qnano =
+			(select max(qnano) from qna where qnano < #{qnano})
+	]]>
+	</select>
+	<select id="getPageNext" resultType="com.wine.model.QnaVO">
+	<![CDATA[
+		select qnano, subject, re from qna where qnano =
+			(select min(qnano) from qna where qnano > #{qnano})
+	]]>
+	</select>
+	<select id="getDetail" resultType="com.wine.model.QnaVO">
+		select * from qna where qnano = #{qnano}
+	</select>
+	<update id="readCount">
+		update qna set count = count+1 where qnano = #{qnano}
+	</update>
+	<insert id="insert">
+		insert into qna(qnano, subject, content, img, id, pwd)
+		values(qna_seq.nextval, #{subject, jdbcType=VARCHAR}, #{content, jdbcType=VARCHAR}, #{img, jdbcType=VARCHAR}, #{id}, #{pwd})
+	</insert>
+	<insert id="insertSelectKey">
+	<!-- 변수를 만들어서 key값을 들고온거임! -->
+	<selectKey keyProperty="qnano" order="BEFORE" resultType="long">
+		select qna_seq.nextval from dual
+	</selectKey>
+		insert into qna(qnano, subject, content, img, id, pwd)
+		values(#{qnano}, #{subject, jdbcType=VARCHAR}, #{content, jdbcType=VARCHAR}, #{img, jdbcType=VARCHAR}, #{id}, #{pwd})
+		<!-- ${}얘가 물음표에 set까지 해줌 -->
+	</insert>
+	<delete id="delete">
+		delete from qna where qnano=#{qnano}
+	</delete>
+	<select id="pwdCheck" resultType="com.wine.model.QnaVO">
+		select qnano from qna where pwd= #{pwd} and qnano=#{qnano}
+	</select>
+	<update id="qnaAnswer">
+		update qna set reply=#{reply, jdbcType=VARCHAR} ,reindate=sysdate, re=2 where qnano=#{qnano}
+	</update>
+	<update id="update">
+		update qna set subject=#{subject, jdbcType=VARCHAR}, content=#{content, jdbcType=VARCHAR}, img=#{img, jdbcType=VARCHAR}, id=#{id}, pwd=#{pwd} where qnano=#{qnano}
+	</update>
+</mapper>

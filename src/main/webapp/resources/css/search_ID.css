@@ -1,0 +1,73 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+#search_page{
+  margin-bottom: 150px;
+}
+#search_page h2{
+  font-family: 'RIDIBatang';
+  margin: 60px 0 0 0;
+  text-align: center;
+}
+
+#search_page #login{
+  font-family: 'RIDIBatang';
+  width: 540px;
+  margin: 40px auto 80px auto;
+  padding: 50px 46px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: solid 1px #a4a4a4;
+}
+
+#search_page .search_box{
+  width: 450px;
+}
+
+#search_page div .search{
+  width: 100%;
+margin-top: 10px;	
+margin-bottom: 20px;	
+}
+
+#search_page div .search input{
+  height: 48px;
+  padding: 0 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#search_page a{
+text-decoration: none;
+}
+
+#search_page input {
+height: 30px;
+width: 504px;
+}
+#search_page fieldset {
+text-align: left;
+margin: 10px auto;
+width: 700px;
+border: 0;
+}
+#search_page #tool{
+  padding-top: 10px;
+  text-align: center;
+}
+
+#search_page .search_btn {
+background-color:#a4a4a4;
+border-radius:3px;
+border:1px solid #a4a4a4;
+display:inline-block;
+color: #fff !important;
+font-size:15px;
+font-weight:bold;
+padding:16px 37px;
+text-decoration:none;
+  width: 450px;
+  text-align: center;
+}

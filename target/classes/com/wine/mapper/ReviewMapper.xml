@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.ReviewMapper">
+	<resultMap type="com.wine.model.AttachVO" id="AttachVO">
+		<result column="uuid" property="uuid" jdbcType="VARCHAR" />
+		<result column="uploadPath" property="uploadPath" jdbcType="VARCHAR" />
+		<result column="fileName" property="fileName" jdbcType="VARCHAR" />
+		<result column="fileType" property="fileType" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap type="com.wine.model.ReviewVO" id="ReviewVO">
+		<result column="reviewno" property="reviewno" jdbcType="VARCHAR" />
+		<result column="subject" property="subject" jdbcType="VARCHAR" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="name_kr" property="name_kr" jdbcType="VARCHAR" />
+		<collection property="attachVO" resultMap="AttachVO" />
+	</resultMap>
+	<select id="getList" resultMap="ReviewVO">
+		select * from review_view R
+                LEFT JOIN attach A 
+                ON R.reviewno = A.reviewno 
+        where best =2 order by R.reviewno desc
+	</select>
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+				<choose>
+					<when test="type == 'S'.toString()">
+						subject like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'C'.toString()">
+						content like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'W'.toString()">
+						id like '%'||#{keyword}||'%'
+					</when>
+				</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	<sql id="criteria2">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+				<choose>
+					<when test="type == 'S'.toString()">
+						subject like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'C'.toString()">
+						content like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'W'.toString()">
+						id like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'B'.toString()">
+						best like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'N'.toString()">
+						name_kr like '%'||#{keyword}||'%'
+					</when>
+				</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	<select id="getListWithPaging" resultType="com.wine.model.ReviewVO">
+	<![CDATA[
+		select reviewno, prodno, subject, img, id, indate, count, replyCount
+		from(select /*+INDEX_DESC(r PK_REVIEW)*/
+				rownum rn, reviewno, prodno, subject, img, id, indate, count,
+                (SELECT count(*) FROM reply re WHERE re.reviewno = r.reviewno ) AS replyCount
+			from review r
+			where
+	]]>	<include refid="criteria"></include>
+	<![CDATA[	
+			 rownum<= #{pageNum} * #{amount} and prodno=#{prodno})
+		where rn > (#{pageNum}-1) * #{amount}
+	]]>
+	</select>
+	<select id="pageTotal" resultType="int">
+		select count(*) from review where 
+		<include refid="criteria"></include>
+		reviewno > 0 and prodno=#{prodno}
+	</select>
+	<select id="pageTotalA" resultType="int">
+		select count(*) from review R LEFT JOIN product P ON R.prodno = P.prodno where 
+		<include refid="criteria2"></include>
+		reviewno > 0
+	</select>
+	<select id="getPagePrev" resultType="com.wine.model.ReviewVO">
+	<![CDATA[
+		select reviewno, subject, (SELECT count(*) FROM reply re WHERE re.reviewno = r.reviewno ) AS replyCount
+		from review r where reviewno = (select max(reviewno) from review where prodno=#{prodno} and reviewno < #{reviewno})
+	]]>
+	</select>
+	<select id="getPageNext" resultType="com.wine.model.ReviewVO">
+	<![CDATA[
+		select reviewno, subject, prodno, (SELECT count(*) FROM reply re WHERE re.reviewno = r.reviewno ) AS replyCount
+		from review r where reviewno = (select min(reviewno) from review where prodno=#{prodno} and reviewno > #{reviewno})
+	]]>
+	</select>
+	<select id="getDetail" resultType="com.wine.model.ReviewVO">
+		select * from review where reviewno = #{reviewno}
+	</select>
+	<update id="readCount">
+		update review set count = count+1 where reviewno = #{reviewno}
+	</update>
+	<select id="getListP" resultType="com.wine.model.ReviewVO">
+		select * from review where prodno = #{prodno} order by reviewno DESC
+	</select>
+	<insert id="insert">
+		insert into review(reviewno, prodno, subject, content, img, id, pwd)
+		values(review_seq.nextval, #{prodno}, #{subject, jdbcType=VARCHAR}, #{content, jdbcType=VARCHAR}, #{img, jdbcType=VARCHAR}, #{id}, #{pwd})
+	</insert>
+	<insert id="insertSelectKey">
+	<!-- 변수를 만들어서 key값을 들고온거임! -->
+	<selectKey keyProperty="reviewno" order="BEFORE" resultType="long">
+		select review_seq.nextval from dual
+	</selectKey>
+		insert into review(reviewno, prodno, subject, content, img, id, pwd)
+		values(#{reviewno}, #{prodno}, #{subject, jdbcType=VARCHAR}, #{content, jdbcType=VARCHAR}, #{img, jdbcType=VARCHAR}, #{id}, #{pwd})
+		<!-- ${}얘가 물음표에 set까지 해줌 -->
+	</insert>
+	<delete id="delete">
+		delete from review where reviewno=#{reviewno}
+	</delete>
+	<select id="pwdCheck" resultType="com.wine.model.ReviewVO">
+		select reviewno from review where pwd= #{pwd} and reviewno=#{reviewno}
+	</select>
+	<select id="getListA" resultType="com.wine.model.ReviewVO">
+		<![CDATA[
+		select reviewno, prodno, subject, img, id, indate, count, best, name_kr
+		from(select /*+INDEX_DESC(R PK_REVIEW)*/
+			rownum rn, reviewno, R.prodno, subject, img, id, indate, count, best, name_kr
+			from review R LEFT JOIN product P ON R.prodno = P.prodno
+			where
+	]]>	<include refid="criteria2"></include>
+	<![CDATA[	
+			 rownum<= #{pageNum} * #{amount})
+		where rn > (#{pageNum}-1) * #{amount}
+	]]>
+	</select>
+	<update id="bestSelect">
+		update review set best = #{best} where reviewno = #{reviewno}
+	</update>
+	<update id="update">
+		update review set subject=#{subject, jdbcType=VARCHAR}, content=#{content, jdbcType=VARCHAR}, img=#{img, jdbcType=VARCHAR}, id=#{id}, pwd=#{pwd} where reviewno=#{reviewno}
+	</update>
+</mapper>

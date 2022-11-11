@@ -1,0 +1,31 @@
+h2 {
+	text-align: center;
+	margin-top: 40px;
+	font-family: 'RIDIBatang';
+	margin-bottom: 40px;
+}
+
+#table {
+  font-family: 'RIDIBatang';
+    width:1200px;
+   margin: auto;
+}
+
+  th {
+    background-color: lightgray;
+  }
+
+  table td,th {
+    border: #d3d3d3 solid 1px; /* 경계선 색상 스타일 굵기 */
+    padding: 15px; /* 안쪽 여백 */
+  }
+
+  table {
+    width:1200px;
+    border-collapse: collapse;
+   margin: auto;
+  }
+
+  input text {
+  line-height: 25px;
+  }

@@ -1,0 +1,99 @@
+#title{
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 30px;
+
+}
+#title span{
+  font-size: 13px;
+  padding-left: 10px;
+
+}
+#title_1{
+  font-weight: bolder;
+  text-decoration: underline;
+}
+#title div{
+  padding-top: 20px;
+}
+#main {
+  padding-top: 80px;
+  width: 1000px;
+  margin: 0 auto;
+}
+#main p{
+  font-size: 12px;
+  margin: 0 auto;
+  text-align: left;
+  padding-bottom: 20px;
+}
+#main div{
+  margin: 0 auto;
+}
+
+#all_box div{
+  display: inline-block;
+  padding-bottom: 20px;
+}
+#agree_all{
+  /* border: 1px solid red; */
+  padding-left: 660px
+}
+.select_box{
+  border-top: 1px solid gray;
+}
+.select_box div{
+  padding-top: 10px;
+}
+#btn1{
+  padding-left: 701px;
+  display: inline-block;
+}
+#btn2{
+  padding-left: 642px;
+  display: inline-block;
+}
+#btn3{
+  padding-left: 550px;
+  display: inline-block;
+}
+#btn4{
+  padding-left: 513px;
+  display: inline-block;
+}
+#radios_text{
+  padding-top: 30px;
+}
+#btn_div{
+  text-align: center;
+  padding-top: 100px;
+}
+#btn{
+  width: 150px;
+  height: 40px;
+  border-radius: 5px 5px 5px 5px;
+  margin-right:-4px;
+  border:1px solid  #881824;
+  background-color: rgba(0,0,0,0);
+  color:  #881824;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 145px;
+
+}
+#btn:hover{
+  color: white;
+  background-color:  #881824;
+}
+.popup_cont{
+	padding:30px;
+}
+.popup_box .popup_btn {display:table;table-layout: 
+  fixed;width:100%;height:70px;background:#ECECEC;word-break: break-word;}
+.popup_box .popup_btn a {position: relative; display: 
+  table-cell; height:70px;  font-size:17px;text-align:center;vertical-align:
+  middle;text-decoration:none; background:#ECECEC; color:#000000;}
+
+

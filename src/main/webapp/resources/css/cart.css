@@ -1,0 +1,332 @@
+*{
+  margin:0;
+  padding: 0;
+}
+
+ul{
+  list-style-type:none;
+}
+
+.clear{
+  clear:both;
+}
+
+#title{
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 30px;
+}
+
+#title span{
+  font-size: 13px;
+  padding-left: 10px;
+}
+#title_1{
+  font-weight: bolder;
+  text-decoration: underline;
+}
+#title div{
+  padding-top: 20px;
+}
+
+body #cart_item{
+  width: 1300px;
+  font-family: 'RIDIBatang';
+  font-size: 16px;
+  text-decoration: none;
+  color:#000000;
+  overflow:hidden;
+  float: left;
+  margin-left: 15%;
+  margin-top: 70px;
+  padding-bottom: 20px;
+}
+
+.basketdiv {
+  /* border: 1px solid red; */
+  width: 100%;
+  float: left;
+  font-size: 0.9375em;
+  margin-bottom: 20px;
+  overflow:visible;
+}
+
+.basketdiv .row.data {
+  /* border: 1px solid red; */
+  height: 250px;
+  margin-bottom: 10px;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px dashed #888;
+}
+
+.row.data .subdiv{
+  display: block;
+  float: left;
+  /* border: 1px solid red; */
+}
+
+  .basketdiv .row > .subdiv:nth-child(1) {
+    /* border: 1px solid red; */
+    text-align: center;
+    vertical-align: center;
+    width: 55%;
+    height: 200px;
+    margin-top: 20px;
+  }
+  .basketdiv .row > .subdiv:nth-child(2) {
+    /* border: 1px solid red; */
+    text-align: center;
+    vertical-align: center;
+    height: 200px;
+    margin-top: 20px;
+    width: 30%;
+  }
+  .basketdiv .row > .subdiv:nth-child(3) {
+    width: 10%;
+    height: 200px;
+    /* border: 1px solid red; */
+    text-align: center;
+    vertical-align: center;
+    margin-top: 20px;
+  }
+
+  .basketdiv .data .num .updown {
+    color: #707070;
+  }
+
+  .basketdiv .check {
+    width: 15px;
+    float: left;
+    margin-right: 50px;
+    margin-top: 13%;
+  }
+
+  .basketdiv .img img{
+    /* border: 1px solid red; */
+    box-shadow: 0px 0px 3px rgb(70, 70, 70);
+    width: 200px;
+    height: 200px;
+    margin-right: 45px;
+    float: left;
+  }
+
+  .basketdiv .pname{
+    /* border: 1px solid red; */
+    float: left;
+    margin-top: 12%;
+  }
+
+  .basketdiv .basketprice {
+    /* border: 1px solid red; */
+    width: 100px;
+    float: left;
+    margin-top: 24%;
+  }
+
+  .basketdiv .num {
+    /* border: 1px solid red; */
+    width: 100px;
+    min-width: 105px;
+    float: left;
+    margin-top: 23%;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .basketdiv .sum {
+    /* border: 1px solid red; */
+    width: 100px;
+    max-width: 80px;
+    color: #881824;
+    float: left;
+    margin-top: 24%;
+  }
+  
+  .basketdiv .basketcmd{
+    font-size: 14px;
+    margin-top: 95px
+  }
+
+.buttongroup {
+  padding: 11px 0;
+  margin: 50px 0;
+}
+.narrowbuttongroup{
+  margin: 15px 0;
+}
+  .buttongroup.center {
+      text-align: center;
+  }
+  .buttongroup input[type=text], .buttongroup input[type=password] {
+      height: 30px;
+  }
+  .buttongroup button, .buttongroup a {
+      margin-right: 5px;
+  }
+  .buttongroup button:last-child, .buttongroup a:last-child {
+          margin-right: 0;
+  }
+
+  /* 삭제 버튼 */
+  .abutton, .abutton:link, .abutton:visited, .abutton:active, input[type=button] {
+      background-color: #881824;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 5px 5px;
+      /* margin: 2px 3px; */
+      width: auto;
+      word-break: keep-all;
+      border-radius: 5px;
+      text-decoration: none;
+  }
+
+/* 상품 갯수/합계금액 */
+.basketrowcmd, .sumcount, .summoney{
+text-align: right;
+margin-bottom: 10px;
+}
+.sumcount, .summoney{
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* 상품 수량 */
+.orderform .p_num {
+  text-align: center;
+  width: 40px;
+  font-size: 1em;
+}
+
+body #cart_item {
+  /* border: 1px solid red; */
+}
+
+body #cart_item #item{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  width: 1300x;
+  border-bottom:solid 3px #a1a1a1;
+}
+
+.buttongroup{
+  text-align: center;
+}
+
+.basketrowcmd{
+  margin-top: 15px;
+  padding: 10px 0px;
+}
+
+#cart_item #last{
+clear: both;
+padding-right: 20px;
+}
+
+.sumcount{
+  margin-top: 10px;
+}
+
+#goorder{
+  margin-bottom: 150px;
+  /* border: 1px solid red; */
+}
+
+/* 선택상품 주문 버튼 */
+#goorder div.buttongroup input {
+  font-family: 'RIDIBatang';
+  font-size: 16px;
+  width: 160px;
+  height: 50px;
+  border-radius: 5px 5px 5px 5px;
+  margin-right:-4px;
+  border:1px solid #881824;
+  background-color: rgba(0,0,0,0);
+  color:  #881824;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+  padding: 8px 5px;
+}
+#mycart{
+  border: 1px solid rgb(255, 255, 255);
+}
+#goorder div.buttongroup input:hover {
+  color: white;
+  background-color:  #881824;
+}
+div#select_all{
+    /* border: 1px solid red; */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+/* 버튼 */
+button{
+  all: unset;
+}
+.area_count_2{
+  padding: 0 !important;
+}
+
+#cart_item #del{
+  cursor: pointer;
+  text-align: center;
+  width: 50px;
+  height: 27px;
+  border: solid 1px #3f3f3f;
+  background-color: #e2e2e2;
+  border-radius : 5%
+}
+
+/* 체크박스 */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  outline: none !important;
+  border: 1px solid #3f3f3f;
+  border-radius: 2px;
+  background: #fbfbfb;
+}
+
+input[type="checkbox"]::before {
+  content: "\2713";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  transform: scale(0) translate(-50%, -50%);
+  line-height: 1;
+}
+
+input[type="checkbox"]:hover {
+  border-color: rgba(68, 68, 68, 0.5);
+}
+
+input[type="checkbox"]:checked {
+  background-color: rgb(90, 90, 90);
+  border-color: #3f3f3f;
+  color: white;
+}
+
+input[type="checkbox"]:checked::before {
+  border-radius: 2px;
+  transform: scale(1) translate(-50%, -50%)
+}
+
+#agree_all input[type="checkbox"]{
+  transform: translateY(2.5px);
+}
+
+.updown li{
+  color: #f77070;
+  font-size: 18px;
+  letter-spacing: -5px;
+}

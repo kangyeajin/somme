@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.OrderMapper">
+
+	<sql id="criteria">
+     	<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+     	  <foreach item="type" collection="typeArr">
+     	  	<trim prefix="OR">
+     	  	  <choose>
+     	  	    <when test="type == 'N'.toString()">
+     	  	    	name like '%'||#{keyword}||'%'
+     	  	    </when>
+     	  	    <when test="type == 'P'.toString()">
+     	  	    	name_kr like '%'||#{keyword}||'%'
+     	  	    </when>
+     	  	    <when test="type == 'R'.toString()">
+     	  	    	result like '%'||#{keyword}||'%'
+     	  	    </when> 
+     	  	  </choose>
+     	  	</trim>
+     	  </foreach>
+     	</trim>
+	</sql>
+
+	<!-- 주문번호 가져오기 -->
+	<select id="MaxOrderNo" resultType="Integer">
+		<![CDATA[select max(orderno) from payment]]>
+	</select>
+
+	<!-- payment에 주문 추가 -->
+	<insert id="insertPayment">
+		<![CDATA[insert into payment(orderno, userid) values( payment_seq.nextval, #{userid})]]>
+	</insert>
+
+   <!-- order_detail 주문 상세 테이블에 입력 -->
+   <insert id="insertOrderDetail">
+      <![CDATA[insert into order_detail(detailno, orderno, prodno, 
+      userid, num, result, message, zipNum, addr1, addr2, phone)
+            values(order_detail_seq.nextval, #{MaxOrderNo}, #{prodno}, #{userid}, #{no}, 
+            #{result}, #{message},#{zipNum},#{addr1},#{addr2},#{phone})]]>
+   </insert>
+
+	<!-- 장바구니에서 주문 진행된 값 체크 -->
+	<update id="cartResult2">
+		<![CDATA[update cart set result=2 where cartno=#{cartno} ]]>
+	</update>
+
+	<!-- 현재 진행 중인 주문 내역만 조회 -->
+	<select id="ordernoList" resultType="Integer">
+		<![CDATA[
+			select 
+			/*+index_desc(order_detail pk_detailno)*/
+			distinct orderno
+			from order_detail
+			where userid = #{userid} and result = '1'
+		]]>
+	</select>
+
+	<!-- 진행완료된 주문 내역만 조회 -->
+	<select id="orderOKnoList" resultType="Integer">
+		<![CDATA[
+			select 
+			/*+index_desc(order_detail pk_detailno)*/
+			distinct orderno
+			from order_detail
+			where userid = #{userid} and result = '2'
+		]]>
+	</select>
+
+	<!-- 사용자가 주문 내역 검색 -->
+	<select id="listOrderById" resultType="com.wine.model.OrderVO">
+		<![CDATA[ 
+			select * from order_view where userid = #{userid}
+			and result like '%'|| #{result} ||'%' and orderno = #{orderno}
+		]]>
+	</select>
+
+	<!-- result가 1이거나 2인 상품 조회 -->
+	<select id="listOrderResult12"
+		resultType="com.wine.model.OrderVO">
+		<![CDATA[ 
+			select * from order_view 
+			where userid = #{userid} and orderno = #{orderno} 
+			and (result=1 or result =2)
+		]]>
+	</select>
+
+	<!-- result가 3이거나 4인 상품 조회 -->
+	<select id="listOrderResult34"
+		resultType="com.wine.model.OrderVO">
+		<![CDATA[ 
+			select * from order_view 
+			where userid = #{userid} and orderno = #{orderno} 
+			and (result=3 or result =4)
+		]]>
+	</select>
+
+	<!-- 현재 진행 중인 반품 내역만 조회 -->
+	<select id="ordercancelList" resultType="Integer">
+		<![CDATA[
+			select 
+			/*+index_desc(order_detail pk_detailno)*/
+			distinct orderno
+			from order_detail
+			where userid = #{userid} and result = '3'
+		]]>
+	</select>
+
+	<!-- 반품완료된 주문 내역만 조회 -->
+	<select id="ordercancelOKList" resultType="Integer">
+		<![CDATA[
+			select 
+			/*+index_desc(order_detail pk_detailno)*/
+			distinct orderno
+			from order_detail
+			where userid = #{userid} and result = '4'
+		]]>
+	</select>
+
+	<!-- 주문자 이름으로 주문 리스트 검색(result가 1이나 2) -->
+	<select id="listOrder" resultType="com.wine.model.OrderVO">
+		<![CDATA[ 
+      select * from 
+         (select /*+index_desc(payment pk_orderno)*/
+            rownum rn, detailno, orderno, prodno, num, message, 
+            result, userid, 
+            indate, name, email, zipnum, addr1, addr2, phone,
+            name_kr, name_en, price, image
+            from order_view 
+         	where 
+		]]>
+            
+        <include refid="criteria"></include>
+            
+		<![CDATA[ 
+			(result=1 or result=2)
+            and rownum < = #{pageNum} * #{amount}
+    	    order by result, orderno desc)
+      where rn > (#{pageNum} * #{amount}) - #{amount}
+		]]>
+	</select>
+
+	<!-- 주문 상태 변경(주문처리완료 result를 2로 ) -->
+	<update id="updateOrderResult">
+		<![CDATA[update order_detail set result='2' where detailno= #{detailno}]]>
+	</update>
+
+
+	<!-- 주문취소 -->
+	<delete id="orderdelete">
+		<![CDATA[delete from order_View where userid = #{userid} 
+				 and result = 1 and orderno = #{orderno}
+		]]>
+	</delete>
+
+	<!-- 반품신청(result 3) -->
+	<update id="updateCancelResult">
+		<![CDATA[ update order_detail set result='3' where orderno= #{orderno}]]>
+	</update>
+
+	<!--반품신청 처리 완료(result 4) - 관리자 -->
+	<update id="updateCancelOKResult">
+		<![CDATA[ update order_detail set result='4' where detailno= #{detailno} ]]>
+	</update>
+
+	<!-- 반품자 이름으로 주문 리스트 검색(result가 3이나 4) -->
+	<select id="cancellistOrder" resultType="com.wine.model.OrderVO">
+		<![CDATA[ 
+		 select * from 
+         (select /*+index_desc(payment pk_orderno)*/
+            rownum rn, detailno, orderno, prodno, num, message, 
+            result, userid, 
+            indate, name, email, zipnum, addr1, addr2, phone,
+            name_kr, name_en, price, image
+            from order_view 
+         	where 
+		]]>
+		
+        <include refid="criteria"></include>
+		
+		<![CDATA[ 
+			(result=3 or result=4)
+            and rownum < = #{pageNum} * #{amount}
+         	order by result, orderno desc)
+      	where rn > (#{pageNum} * #{amount}) - #{amount}
+		]]>
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		<![CDATA[select count(*) from order_view where]]>
+	    <include refid="criteria"></include>
+		<![CDATA[(result=1 or result=2)]]>
+	</select>
+	
+	<select id="getCancelTotalCount" resultType="int">
+		<![CDATA[select count(*) from order_view where]]>
+	    <include refid="criteria"></include>
+		<![CDATA[(result=3 or result=4)]]>
+	</select>
+</mapper>

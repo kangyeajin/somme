@@ -1,0 +1,98 @@
+.box {
+  box-sizing: border-box;
+  border: 3px solid #881824;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 800px;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.6);;
+
+}
+
+a {
+  text-decoration-line: none;
+}
+
+#logo {
+  font-family: 'Molle';
+  font-size: 80px;
+  color: white;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+h2 {
+  color: white;
+  position: relative;
+  font-family: 'RIDIBatang';
+  text-align: center;
+  margin-top: 25%;
+  font-size: 30px;
+}
+
+button {
+  margin: 20px;
+}
+
+.btn {
+ margin-left: 33%;
+ margin-top: 7%;
+}
+
+.btn1 {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 40px;
+  border-radius: 15px;
+  font-family: "RIDIBatang";
+  font-size: 17px;
+  /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); */
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+.btn2 {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 40px;
+  border-radius: 15px;
+  font-family: "RIDIBatang";
+  font-size: 17px;
+  /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); */
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.btn-wine {
+  background-color: #881824;
+  color: white;
+}
+
+.btn1:hover {
+  letter-spacing: 2px;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.btn2:hover {
+  letter-spacing: 2px;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.text{
+  color: white;
+  position: relative;
+  font-family: 'RIDIBatang';
+  text-align: center;
+  font-size: 17px;
+  margin-top: 10%;
+}
+

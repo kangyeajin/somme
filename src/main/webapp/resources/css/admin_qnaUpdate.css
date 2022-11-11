@@ -1,0 +1,189 @@
+@charset "UTF-8";
+#main {
+	text-align: center;
+}
+
+#title {
+	height: 70px;
+	margin-top: 30px;
+}
+
+#box1 {
+	display: inline-block;
+	text-align: center;
+	width: 1000px;
+}
+
+#box2 {
+	display: inline-block;
+	text-align: center;
+	width: 1200px;
+}
+
+table {
+	display: inline-block;
+	border-collapse: collapse;
+}
+
+th, td {
+	height: 50px;
+	/* border-bottom: 1px solid #dddddd; */
+}
+
+#box1-1 {
+	display: inline-block;
+	text-align: center;
+	margin-top: 100px;
+	width: 700px;
+}
+
+#box1-1-text {
+	display: inline-block;
+	width: 600px;
+	height: 200px;
+	margin-top: 100px;
+}
+
+#box1-1 img {
+	margin: auto;
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* #버튼들 버튼 담은 div임 */
+#button {
+	float: right;
+	margin-bottom: 10px;
+}
+
+#btn2 {
+	margin-top: 50px;
+}
+
+#button button {
+	padding: 3px 30px;
+}
+
+#btn3 button {
+	padding: 3px 30px;
+}
+
+#admin {
+	background-color: rgb(240, 240, 240);
+	margin: auto;
+	width: 1000px;
+	padding-bottom: 10px;
+	margin-bottom: 150px;
+}
+
+#admin hr {
+	border: 1px solid #a1a1a1;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+#admin span {
+	float: left;
+	margin-bottom: 20px;
+}
+
+#adminid {
+	float: left;
+	margin-bottom: 20px;
+	padding-left: 40px;
+}
+
+#admindate {
+	color: #676767;
+}
+
+#admin p {
+	clear: both;
+	margin: auto;
+	margin-bottom: 20px;
+	text-align: left;
+	padding-left: 40px;
+}
+
+#popup {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	position: fixed;
+	/* width: 150px; */
+	/* height: 100px; */
+	z-index: 1;
+	margin-left: 965px;
+	margin-top: -38px;
+}
+
+#popup p:not(#x), #popup hr {
+	margin-bottom: 5px;
+}
+
+#popup #x {
+	float: right;
+	/* margin-bottom: 5px; */
+}
+
+#popup.hide {
+	display: none;
+	position: absolute;
+}
+
+.content button {
+	all: unset;
+	margin: 5px;
+}
+
+#popup .content {
+	padding: 10px;
+	background: rgb(255, 255, 255);
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+}
+
+#dot span {
+	padding: 7px 15px;
+	border-radius: 50%;
+	/* background-size: 1px 1px; */
+}
+
+#dot span:hover {
+	background-color: rgba(0, 0, 0, 0.089);
+	/* color:#fff; */
+	transition: all 0.5s;
+}
+
+@font-face {
+	font-family: 'RIDIBatang';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff')
+		format('woff');
+	font-family: 'Molle';
+	src: url('fonts/Molle-Italic.ttf') format('truetype');
+}
+.btn-circle{
+	position: relative;
+	left:18px;
+	top:12px;
+	width:20px;
+	hight:30px;
+	padding:3px 11px;
+	background-color:rgba(51, 51, 51, 0.438);
+	border: 0;
+	border-radius:50%;
+}
+.btn-circle:after {
+	position: relative;
+	content : "X";
+	right:4px;
+	color:white;
+}
+
+.btn-circle:hover{
+	background-color:#313131;
+}
+
+.uploadResult ul li { float: left; margin-right:20px;}

@@ -1,0 +1,40 @@
+@charset "UTF-8";
+		@font-face {
+			font-family: 'RIDIBatang';
+			src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+		}
+
+		.pwdCheck input {
+			height: 25px;
+			padding: 0 10px;
+			font-size: 14px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		body {
+			font-family: 'RIDIBatang';
+		}
+
+		[type="submit"] {
+			background-color: #a4a4a4;
+			border-radius: 3px;
+			border: 1px solid #a4a4a4;
+			display: inline-block;
+			color: #fff !important;
+			font-size: 15px;
+			font-weight: bold;
+			padding: 5px 7px;
+			text-decoration: none;
+			width: 60px;
+			text-align: center;
+		}
+		[type="submit"]:hover {
+			background-color: #666666;
+			border: 1px solid #666666;
+			cursor: pointer;
+		}
+		table{
+			width: 300px; 
+			margin:0 auto
+		}

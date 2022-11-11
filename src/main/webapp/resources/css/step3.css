@@ -1,0 +1,78 @@
+#step3 {
+    font-family: 'RIDIBatang';
+}
+
+#step3 #title {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 30px;
+
+}
+
+#step3 #title span {
+    font-size: 13px;
+    padding-left: 10px;
+
+}
+
+#step3 #title_1 {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+#step3 #title div {
+    padding-top: 20px;
+}
+
+#step3 #main {
+    padding: 80px 0 20px 0;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#step3 #main div {
+    text-align: center;
+}
+
+#step3 #main img {
+    width: 120px;
+    height: 120px;
+}
+
+#step3 #main div h2 {
+    margin-top: 25px;
+}
+
+#step3 #main div span {
+    font-family: 'Molle';
+    font-size: 30px;
+}
+
+#step3 #main div p {
+    margin-top: 10px;
+}
+
+#btn_div {
+    margin-top: 50px;
+}
+
+#btn {
+    font-family: 'RIDIBatang';
+    width: 150px;
+    height: 40px;
+    border-radius: 3px;
+    margin-right: -4px;
+    border: 1px solid #881824;
+    background-color: rgba(0, 0, 0, 0);
+    color: #881824;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+#btn:hover {
+    color: white;
+    background-color: #881824;
+}

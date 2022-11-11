@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- mybatis3를 참조해서 만들겟다! -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.AttachMapper">
+	<insert id="insert">
+		insert into attach (uuid, uploadpath, filename, filetype, qnano, reviewno, noticeno, eventno)
+		values (#{uuid}, #{uploadPath}, #{fileName}, #{fileType}, 
+		#{qnano, jdbcType=VARCHAR}, #{reviewno, jdbcType=VARCHAR}, 
+		#{noticeno, jdbcType=VARCHAR}, #{eventno, jdbcType=VARCHAR})
+	</insert>
+	<delete id="delete">
+		delete from attach where uuid = #{uuid}
+	</delete>
+	<select id="findByNoticeno" resultType="com.wine.model.AttachVO">
+		select * from attach where noticeno = #{noticeno} 
+	</select>
+	<select id="findByQnano" resultType="com.wine.model.AttachVO">
+		select * from attach where qnano = #{qnano} 
+	</select>
+	<select id="findByReviewno" resultType="com.wine.model.AttachVO">
+		select * from attach where reviewno = #{reviewno} 
+	</select>
+	<select id="findByEventno" resultType="com.wine.model.AttachVO">
+		select * from attach where eventno = #{eventno}
+	</select>
+	<delete id="NoticeDeleteAll">
+		delete attach where noticeno = #{noticeno} 
+	</delete>
+	<delete id="QnaDeleteAll">
+		delete attach where qnano = #{qnano} 
+	</delete>
+	<delete id="ReviewDeleteAll">
+		delete attach where reviewno = #{reviewno} 
+	</delete>
+	<delete id="EventDeleteAll">
+		delete attach where eventno = #{eventno} 
+	</delete>
+</mapper>

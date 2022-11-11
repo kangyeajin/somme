@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wine.mapper.WineSelectMapper">
+	<select id="count" resultType="Long">
+		select count from wineselect where resultno = 1
+	</select>
+	<select id="getList" resultType="com.wine.model.WineSelectVO">
+		select * from wineselect
+		where resultno = CASE 
+        WHEN #{resultno} like '13%' THEN 1
+        WHEN #{resultno} like '1%1' THEN 3
+        WHEN #{resultno} like '1%%' THEN 2
+        WHEN #{resultno} like '23%' THEN 4
+        WHEN #{resultno} like '2%%' THEN 5
+        else 6 END
+	</select>
+	<update id="readCount">
+		update wineselect set count = count+1 where resultno = 1
+	</update>
+</mapper>

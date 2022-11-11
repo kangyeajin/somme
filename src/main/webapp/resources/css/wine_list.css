@@ -1,0 +1,245 @@
+.div2 {
+  border: 1px solid;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clicked {
+  color: gold;
+}
+
+
+#winelistbanner {
+  width: 100%;
+  position: relative;
+}
+
+#winelistbanner .banner-img {
+  vertical-align: middle;
+  text-align: center;
+  background-color: white;
+  height: 250px;
+  max-width: 100%;
+  width: auto !important;
+}
+
+#winelistbanner .banner-text {
+  /* padding: 5px 10px;
+  background-color: yellow; */
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#winelistbanner h2 {
+  color: white;
+  font-family: 'RIDIBatang';
+  font-size: 35px;
+  line-height: 50px;
+}
+
+#winelistbanner .sub_title {
+  color: white;
+  font-family: 'RIDIBatang';
+  font-size: 20px;
+}
+
+section#item {
+  font-family: 'RIDIBatang';
+  font-size: 14px;
+  margin-left: 15%;
+  margin-right: 15%;
+  /* margin-bottom: 15%; */
+  height: auto;
+  overflow: visible;
+  display: block;
+  /* border: 2px solid red; */
+}
+
+#category {
+  /* border: 1px solid red; */
+  position: absolute;
+  width: 250px;
+  margin-top: 65px;
+  margin-left: 1%;
+  float: left;
+}
+
+#category .itemlist-filter00 {
+  float: left;
+}
+
+.itemlist-filter00 ul {
+  /* border: 5px solid red; */
+  width: 110px;
+  margin: 0;
+}
+
+#category .itemlist-filter {
+  padding: 0 15px;
+  margin-bottom: 40px;
+  float: left;
+}
+
+#category .filter-item:hover {
+  color: white;
+  border-color: gray;
+  background: gray;
+}
+
+
+.itemlist-filter ul {
+  /* border: 5px solid red; */
+  width: 110px;
+  margin: 0;
+}
+
+.itemlist-filter00 .filter-item {
+  color: black;
+  font-size: 17px;
+  border: 2px solid gray;
+  display: inline-block;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 8px 20px 8px 20px;
+  margin-bottom: 10px;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+#category .filter-item {
+  font-size: 17px;
+  border: 2px solid gray;
+  display: inline-block;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 8px 20px 8px 20px;
+  margin-bottom: 10px;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.itemlist-filter00 div {
+  text-align: center;
+  width: 70px;
+}
+
+.itemlist-filter div {
+  text-align: center;
+  width: 70px;
+}
+
+/* clicked수정 */
+.clicked{
+  color: white;
+  border-color: gray;
+  background: gray;
+}
+
+#category .filter-item:active{
+  color: white;
+  border-color: gray;
+  background: gray;
+}
+
+#itemlist {
+  margin-left: 300px;
+  display: inline-block;
+  position: relative;
+  margin-top: 65px;
+  padding-left: 20px;
+  margin-bottom: 15%;
+}
+
+.wine-item {
+  width: 300px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  float: left;
+}
+
+.winename {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: left;
+  font-family: "RIDIBatang";
+  line-height: 150%;
+}
+
+.wineimg {
+  width: 300px;
+  height: 300px;
+  margin-top: 11px;
+}
+
+.wine-item-inner img{
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 0px 3px grey ;
+}
+
+.wine-item .winename a:first-child {
+  font-weight: normal;
+  color: #212121;
+  font-size: 17px;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+
+#item .show {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#item .hide {
+  visibility: hidden;
+}
+
+footer{
+  clear: both;
+}
+
+.for_fig a{
+  display: block;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 0px 3px grey ;
+}
+
+.wine-item-inner .for_fig figcaption{
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.7);
+
+  position: absolute; /* 이미지와 겹치게 처리 */
+  top: 0; left: 0;
+
+  color: #fff; text-align: center;
+  line-height: 300px;
+  opacity: 0; /*처음엔 안보이고 */
+  transition: 0.4s;
+  margin: 0;
+}
+.wine-item-inner a:hover figcaption, .wine-item-inner a:focus figcaption{
+  /* 마우스를 올리면 보이게 처리 */
+  opacity: 0.8;
+}
+
