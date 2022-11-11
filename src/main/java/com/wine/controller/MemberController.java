@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +24,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wine.model.MemberVO;
 import com.wine.model.OrderVO;
-import com.wine.model.ProductVO;
 import com.wine.service.MemberService;
 import com.wine.service.OrderService;
 import com.wine.service.ProductService;
@@ -49,15 +47,9 @@ public class MemberController {
 	@Inject
 	BCryptPasswordEncoder pwdEncoder;
 	
-//	@RequestMapping("mypage")
-//	public String mypage() {
-//		log.info("mypage가 호출되었습니다.");
-//		return "member/mypage";
-//	}
-	
 	/* ==============추가======================= */
 	@PostMapping("/go_login")
-	public String go_login(@RequestParam String prodno, HttpServletRequest httpServletRequest, Model model) {
+	public String go_login(@RequestParam String prodno, HttpServletRequest request, Model model) {
 		if (prodno != null) {
 			model.addAttribute("prodno", prodno);
 		}
@@ -78,7 +70,8 @@ public class MemberController {
 		session.setAttribute("id", id);
 		return "member/login";
 	}
-
+	
+	//틀릴경우 메세지 띄우기
 	@GetMapping("/login")
 	public void memberlogin(String error, String logout, Model model) {
 		log.info("error: " + error);
@@ -91,33 +84,23 @@ public class MemberController {
 			model.addAttribute("logout", "Logout!!");
 		}
 	}
-
-//	@PostMapping("/login")
-//	public String memberLogin( @RequestParam String prodno, Model model, MemberVO memberVO, HttpServletRequest req, RedirectAttributes rttr) {
+//	@GetMapping("/login")
+//	public void memberlogin(@RequestParam String prodno, String error, String logout, Model model) {
 //		
-//		log.info("===========prodno=============="+prodno);
+//		if (prodno != null) {
+//			model.addAttribute("prodno", prodno);
+//			log.info("이전에 보고있던 제품번호"+prodno);
+//		}
+//		
+//		log.info("error: " + error);
+//		log.info("logout: " + logout);
 //
-////		HttpSession session = req.getSession();
-////		String id = memberVO.getId();
-////		System.out.println("아이디" + id);
-////		String pwd = memberVO.getPwd();
-////		System.out.println("비번" + pwd);
-////		MemberVO memberVOo = service.signIn(id, pwd);
-////		if (memberVOo != null) {
-////			if(prodno != null) {
-////				session.setAttribute("loginUser", memberVOo);
-////				ProductVO prodVO = prodService.selectProductByCode(prodno);
-////				model.addAttribute("prod", prodVO);
-////			}else {
-////				session.setAttribute("loginUser", memberVOo);
-////			}
-////			return "member/LoginOK";
-////		} else {
-////			req.setAttribute("message", "입력한 정보가 올바르지 않거나 존재하지 않는 회원입니다");
-////			return "member/login";
-////		}
-//		
-//		return "/main";
+//		if (error != null) {
+//			model.addAttribute("error", "아이디 혹은 비밀번호를 확인해주세요");
+//		}
+//		if (logout != null) {
+//			model.addAttribute("logout", "Logout!!");
+//		}
 //	}
 
 	@RequestMapping("logout")
@@ -281,7 +264,6 @@ public class MemberController {
 		log.info("입력한 비번 :" + pwdEncoder.encode(pwd));
 		
 		MemberVO memberVOo = service.getMember(memberVO.getId());
-		log.info("가져온 비번2222222222222222222 : "+memberVOo);
 		log.info("가져온 비번 : "+memberVOo.getPwd());
 		
 		if (pwdEncoder.matches( pwd,memberVOo.getPwd()) == true) {
@@ -363,6 +345,7 @@ public class MemberController {
 			session.setAttribute("access_Token", access_Token);
 			System.out.println("세션에 올린 토큰" + access_Token);
 			return "member/LoginOK";
+			
 		} else {
 			MemberVO memberVOo = new MemberVO();
 			// 카카오 유저 받아올 수 있는 값=아이디/이름 뿐이라 다른 값들은 세팅해줌
@@ -378,10 +361,33 @@ public class MemberController {
 			System.out.println("세션에 올린 토큰" + access_Token);
 			req.setAttribute("message",
 					"<br> 회원님의 비밀번호는 <span style=\"color: #df0202\">1234</span>입니다. <br> 마이페이지에서 정보를 수정해주세요");
+			
 			return "member/LoginOK";
 		}
 	}
 
+
+	@RequestMapping("LoginOK111")
+	public String LoginOK(Principal principal, HttpServletRequest request, Model model, HttpSession session) {
+		
+		String prodno = request.getParameter("prodno");
+		if (prodno != null) {
+			model.addAttribute("prodno", prodno);
+			log.info("이전에 보고있던 제품번호"+prodno);
+		}
+		
+		log.info("mypage가 호출되었습니다.");
+		String id = "";
+		if (principal != null) {
+			id = principal.getName();
+			MemberVO memberVO = service.getMember(id);
+			model.addAttribute("loginUser", memberVO);
+			session.setAttribute("loginUser", memberVO);
+		}
+
+		return "member/LoginOK";		
+	}
+	
 	@RequestMapping("mypage")
 	public String mypage(Principal principal, HttpServletRequest request, Model model, HttpSession session) {
 		log.info("mypage가 호출되었습니다.");
@@ -402,10 +408,17 @@ public class MemberController {
 	public void Mycart_list(Principal principal, HttpServletRequest request, Model model) {
 		log.info("mypage가 호출되었습니다.");
 		
+		String id ="";
 		String userid = "";
 		if(principal != null) {
 			userid = principal.getName();
-		}		
+			
+			id = principal.getName();
+			MemberVO memberVO = service.getMember(id);
+			model.addAttribute("loginUser", memberVO);
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", memberVO);
+		}
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		if(loginUser != null) {

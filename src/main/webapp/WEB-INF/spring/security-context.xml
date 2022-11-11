@@ -17,22 +17,19 @@
 	<bean id="customUserDetailsService"
 		class="com.wine.security.CustomUserDetailsService"></bean>
 
-
 	<security:http>
 
-		<security:intercept-url pattern="/main/"
-			access="permitAll" />
+		<security:intercept-url pattern="/main/" access="permitAll" />
 
 <!-- 		<security:intercept-url pattern="/wineselect/wineselect" access="hasRole('ROLE_MEMBER')" /> -->
 		<security:intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" />
 
 		<security:access-denied-handler ref="customAccessDenied" />
 
-		<!-- <security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess" 
-			/> -->
-<!-- 여기 로그인으로 들어가야  -->
-		<security:form-login login-page="/member/login" />
-
+		<security:form-login login-page="/member/login" authentication-success-handler-ref="customLoginSuccess" />
+		
+		<!-- 여기 로그인으로 들어가야  -->
+		<!-- <security:form-login login-page="/member/login" /> -->
 		<!-- <security:csrf disabled="true"/> -->
 
 		<security:logout logout-url="/customLogout"

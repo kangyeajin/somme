@@ -30,6 +30,11 @@
 	width:1050px;
 	height:250px;
 }
+#chat {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
 </style>
 
 </head>
@@ -53,6 +58,7 @@
 		</div>
 		<script src='<c:url value="/resources/js/slide.js"/>'></script>
 
+<a href="/main/chat"><img id="chat" src="/resources/image/speech-bubble.png"></a>
 
 		<section id="scroll">
 

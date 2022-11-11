@@ -2,6 +2,7 @@ package com.wine.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wine.service.EventService;
@@ -22,5 +23,10 @@ public class MainController {
 	public void main(Model model){
 		model.addAttribute("mainlist", service.selectMainProducts());
 		model.addAttribute("uploadEventList", eService.uploadList());
+	}
+	@GetMapping("chat")
+	public String chat() {
+		log.info("chat이 호출되었습니다.");
+		return "chat";
 	}
 }

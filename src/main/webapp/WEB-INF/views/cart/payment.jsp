@@ -237,6 +237,8 @@
     	}
       
          function productCheck() {
+        	 var num_check=/^[0-9]*$/;
+        	 
             if (document.frm.name.value.length == 0) {
                alert("이름을 입력해주세요.");
                frm.name.focus();
@@ -245,18 +247,24 @@
                alert("전화번호를 입력해주세요.");
                frm.tel.focus();
                return false;
+            } else if(!num_check.test(frm.tel.value)){
+            	alert("전화번호는 숫자만 입력 가능합니다.");
+                frm.tel.focus();
+                return false;     
             } else if (document.frm.addr1.value.length == 0) {
                alert("주소를 입력해주세요.");
                frm.address.focus();
-               return false;
-            } else{
+               return false;  
+            }else{
                frm.action = "/order/pay_done";
                document.frm.submit();
                return true;
             }
          }
 
+         
          function productCheck2() {
+        	 var num_check=/^[0-9]*$/;
              if (document.frm.name.value.length == 0) {
                 alert("이름을 입력해주세요.");
                 frm.name.focus();
@@ -265,6 +273,10 @@
                 alert("전화번호를 입력해주세요.");
                 frm.tel.focus();
                 return false;
+             } else if(!num_check.test(frm.tel.value)){
+              	alert("전화번호는 숫자만 입력 가능합니다.");
+                  frm.tel.focus();
+                  return false;
              } else if (document.frm.addr1.value.length == 0) {
                 alert("주소를 입력해주세요.");
                 frm.address.focus();

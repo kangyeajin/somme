@@ -48,7 +48,7 @@
 <c:forEach items="${paymentlist}" var="paymentlist">
       <div class="pay_done_list">
       <ul>
-        <li><a href="detail.html"><img src='/resources/image/<c:out value="${paymentlist.image}"/>' alt="red"></a></li>
+        <li><a href='/product/detail?prodno=<c:out value="${paymentlist.prodno}"/>'><img src='/resources/image/<c:out value="${paymentlist.image}"/>' alt="red"></a></li>
         <li id="item_name"><span><a href='/product/detail?prodno=<c:out value="${paymentlist.prodno}"/>'>
         	<c:out value="${paymentlist.name_kr}"/> <br> <c:out value="${paymentlist.name_en}"/> </a></li>
         <li>

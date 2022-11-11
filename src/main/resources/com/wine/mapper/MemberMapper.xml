@@ -137,7 +137,7 @@ SELECT
   mem.id, pwd, name, email,zipNum,addr1,addr2,phone,bdate,agree1,agree2, useyn, indate, auth
 FROM 
   member mem LEFT OUTER JOIN member_auth auth on mem.id = auth.id 
-WHERE mem.id = #{id} 
+WHERE mem.id = #{id}  and useyn ='y'
   </select>
   <!-- 비번 변경 -->
   <update id="updatePassword">

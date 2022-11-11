@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.outer {
+text-align: center;
+}
+.container {
+display: inline-block;
+width: 30%;
+}
+h4 {
+font-family: 'RIDIBatang';
+margin-top: 20px;
+margin-bottom: 20px;
+}
+.buttons{
+margin-top: 10px;
+}
+#btn{
+  width: 80px;
+  height: 30px;
+  border-radius: 5px 5px 5px 5px;
+  margin-right:10px;
+  border:1px solid  #881824;
+  background-color: rgba(0,0,0,0);
+  color:  #881824;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+}
+#btn:hover{
+  color: white;
+  background-color:  #881824;
+}

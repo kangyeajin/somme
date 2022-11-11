@@ -29,10 +29,10 @@
 						<br>
 						<hr>
 						<c:choose>
-							<c:when test='${prod == null || prod == ""}'></c:when>
+							<c:when test='${prodno == null || prodno == ""}'></c:when>
 							<c:otherwise>
 							<br>
-								<a href='/product/detail?prodno=<c:out value="${prod.prodno}"/>'
+								<a href='/product/detail?prodno=<c:out value="${prodno}"/>'
 								   style="color:red">
 								 이전 상품 이어서 보기</a>
 							</c:otherwise>

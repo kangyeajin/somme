@@ -61,7 +61,7 @@
 			<c:choose>
 			
 			<c:when test="${not empty sessionScope.loginUser}">
-						<li onclick="alert('로그아웃 하셨습니다')"><a href="/member/logout">${loginUser.id}님 [logout]</a></li>
+				<li onclick="alert('로그아웃 하셨습니다')"><a href="/member/logout">${loginUser.id}님 [logout]</a></li>
 				<li><a id="right_button" href="/member/Mycart_list"> <img
 						src="/resources/image/마이페이지.png" width="32" height="31">
 				</a></li>
@@ -159,12 +159,12 @@
 					<ul id="main_menu3">
 						<li><a id="right_button" href="/admin/product/productList"> 
 						<img src="/resources/image/마이페이지w.png" width="32" height="31" >
-						</a>
-						<a style="padding-bottom:10px"><sec:authentication property="principal.username" />님 [logout]</a>
-						</li>
-						
-						<li onclick="alert('로그아웃 하셨습니다')"><a href="/member/logout">
 						</a></li>
+						<li onclick="alert('로그아웃 하셨습니다')">
+						<a style="padding-bottom:10px" href="/member/logout">
+							<sec:authentication property="principal.username" />님 [logout]
+						</a>
+						</li>
 					</ul>
 					</sec:authorize>
 

@@ -189,7 +189,7 @@
 						<td><c:out value="${orderList.num}" /></td>
 						<td><fmt:formatNumber type="number" maxFractionDigits="3"
 								value="${orderList.price * orderList.num + 2500}" />원</td>
-						<td><c:out value="${orderList.zipNum}" />${orderList.zipNum}</td>
+						<td><c:out value="${orderList.zipNum}" /></td>
 						<td><c:out value="${orderList.addr1}" /> <c:out
 								value="${orderList.addr2}" /></td>
 						<td><fmt:formatNumber var="licsNo" value="${orderList.phone}"
