@@ -81,30 +81,6 @@ public class AdminController {
 		return "admin/main";
 	}
 
-//	@PostMapping("login")
-//	public String adminLogin(WorkerVO workerVO, HttpServletRequest req, RedirectAttributes rttr){
-//		HttpSession session = req.getSession();
-//		String id = workerVO.getId();
-//		System.out.println("아이디"+id);
-//		String pwd = workerVO.getPwd();
-//		System.out.println("비번"+pwd);
-//		WorkerVO workerVOo = service.adminlogin(id, pwd);
-//		if (workerVOo != null) {
-//			session.setAttribute("id", id);
-//			return "redirect:/admin/product/productList";
-//		} else {
-//			req.setAttribute("message", "입력한 정보가 올바르지 않거나 존재하지 않는 회원입니다");
-//			return "admin/main";
-//		}
-//	}
-//
-//	@RequestMapping("logout")
-//	public String logout(HttpSession session) {
-//		log.info("logout이 호출되었습니다.");
-//		session.invalidate();
-//		return "redirect:http://localhost:8090/main/";
-//	}
-
 	@GetMapping("/product/productList")
 	public void productList(prodCriteria cri2, HttpServletRequest request, Model model){
 		//페이징 처리하기 prodCriteria => cri2

@@ -117,7 +117,7 @@
 	
 </script>
 
-<style>
+<style type="text/css">
 [type="button"] {
 	all: unset;
 }
@@ -132,6 +132,10 @@
 	font-family: 'RIDIBatang';
 	font-size: 14px;
 	border: solid 1px white;
+}
+
+.addr {
+	width: 383px;
 }
 </style>
 
@@ -160,7 +164,7 @@
 					<th>수량</th>
 					<th>가격</th>
 					<th>우편번호</th>
-					<th>배송지</th>
+					<th class="addr">배송지</th>
 					<th>전화</th>
 					<th>주문일</th>
 					<th><input type="button" value="반품처리(상품확인)"
@@ -189,7 +193,7 @@
 						<td><fmt:formatNumber type="number" maxFractionDigits="3"
 								value="${orderList.price * orderList.num + 2500}" />원</td>
 						<td><c:out value="${orderList.zipNum}" /></td>
-						<td><c:out value="${orderList.addr1}" /> <c:out
+						<td class="addr"><c:out value="${orderList.addr1}" /> <c:out
 								value="${orderList.addr2}" /></td>
 						<td><fmt:formatNumber var="licsNo" value="${orderList.phone}"
 								pattern="000,0000,0000" /> <c:out

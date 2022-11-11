@@ -250,7 +250,11 @@
             } else if(!num_check.test(frm.tel.value)){
             	alert("전화번호는 숫자만 입력 가능합니다.");
                 frm.tel.focus();
-                return false;     
+                return false;
+            } else if (document.frm.tel.value.length > 11) {
+                alert("전화번호 11자를 입력해주세요");
+                frm.tel.focus();
+                return false;
             } else if (document.frm.addr1.value.length == 0) {
                alert("주소를 입력해주세요.");
                frm.address.focus();
@@ -277,6 +281,10 @@
               	alert("전화번호는 숫자만 입력 가능합니다.");
                   frm.tel.focus();
                   return false;
+             } else if (document.frm.tel.value.length > 11) {
+                 alert("전화번호 11자를 입력해주세요");
+                 frm.tel.focus();
+                 return false;
              } else if (document.frm.addr1.value.length == 0) {
                 alert("주소를 입력해주세요.");
                 frm.address.focus();
@@ -329,7 +337,7 @@
                   alert(msg);
                   
                   //operForm.add()
-                  //operForm.attr("action","/order/pay").submit();
+                  operForm.attr("action","/order/pay").submit();
                }
             });
          }
