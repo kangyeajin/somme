@@ -5,7 +5,7 @@
 그런 당신을 위한 쉽고, 간편한 맞춤 와인 사이트 ‘somme’입니다.
 <hr>
 
-## 😎팀원 소개
+## 😎 팀원 소개
 
 강예진 | 김하늘 | 최지은 | 홍미지
 ---|---|---|---|
@@ -71,7 +71,7 @@
 
  * API
   *  ` KakaoMap ` ` Kakao Login REST API ` 
-  *  ` 이니시스pay ` ` Dongle chat(html5) `
+  *  ` 이니시스 pay ` ` Dongle chat(html5) `
 
  * Tools
   *  ` Git ` ` Eclipse IDE ` ` VS code ` ` STS `
