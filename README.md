@@ -56,25 +56,26 @@
 
 ## 💻 개발 언어 및 활용 기술
 
-* 사용언어 및 프레임 워크
+* <b>사용언어 및 프레임 워크</b>
   *  ` JAVA `
   * ` Spring Framework `
   * ` jsp ` ` jstl ` ` EL `
 
- * 웹 표준 및 프론트
+* <b>웹 표준 및 프론트</b>
   *  ` html5 ` ` css3 ` ` JavaScript `
   *  ` jQuery ` ` Ajax `
  
- * DB
+* <b>DB</b>
   *  ` Oracle11 ` 
   *  ` MyBatis ` 
 
- * API
+* <b>API</b>
   *  ` KakaoMap ` ` Kakao Login REST API ` 
-  *  ` 이니시스 pay ` ` Dongle chat(html5) `
+  *  `  `
+  *  ` Dongle chat(html5) `
 
- * Tools
+* <b>Tools</b>
   *  ` Git ` ` Eclipse IDE ` ` VS code ` ` STS `
 
- * Tools
+* <b>Server</b>
   *  ` Apache Tomcat ` 
