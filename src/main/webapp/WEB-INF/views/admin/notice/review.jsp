@@ -44,6 +44,7 @@
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
+				<th><img class='love' style="width:20px; height:20px" src="/resources/image/love.png"></th>
 				<th id="bestReviewList"><input type="button" value="베스트 리뷰"></th>
 				<th><input type="button" value="선택삭제" onclick="fn_userDel()">
 						<input
@@ -62,6 +63,7 @@
 						</a></td>
 					<td>${reviewList.id}</td>
 					<td><fmt:formatDate value="${reviewList.indate}" pattern="yyyy-MM-dd" type="date"/></td>
+					<td>${reviewList.loveCount}</td>
 					<c:choose>
 						<c:when test="${reviewList.best eq 1}">
 							<td class='set' style="cursor: pointer" data-reviewno='${reviewList.reviewno}'><a>베스트리뷰 적용</a></td>

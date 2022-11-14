@@ -44,14 +44,9 @@
 			<div id="title">
 				<h2>리뷰</h2>
 			</div>
-			<form name="frm" id="reviewForm" action="/product/detail#box2">
+			
 				<div id="box1">
-					<input type="hidden" name="reviewno" value="${reviewVO.reviewno}">
-					<input type="hidden" name="prodno" value="${reviewVO.prodno}">
-					<input type='hidden' name='pageNum' value='${cri.pageNum}'>
-					<input type='hidden' name='amount' value='${cri.amount}'>
-					<input type='hidden' name='type' value='${cri.type}'> 
-					<input type='hidden' name='keyword' value='${cri.keyword}'>
+					
 					<table table frame="above">
 						<tr>
 							<td width="200px" bgcolor="#f4f4f4">제목</td>
@@ -98,6 +93,26 @@
 						</c:if>
 						<div id="box1-1-text" style="line-height: 120%">${fn:replace(reviewVO.content,replaceChar,"<br/>")}</div>
 					</div>
+					<form id="loveForm">
+			<sec:authorize access="isAuthenticated()">
+				<input type="hidden" name='id' value="<sec:authentication property="principal.username" />">
+			</sec:authorize>
+			<!-- 로그아웃유저 -->
+			<sec:authorize access="isAnonymous()">
+				<c:if test="${not empty loginUser}">
+				<input type="hidden" name='id' value="${loginUser.id}">
+				</c:if>
+			</sec:authorize>
+			<div id="love">
+					<div class="loveCount">
+						<!-- 총개수 들어옴 -->
+					</div>
+					<div class="love-body">
+						<!-- 하트들어옴 -->
+					</div>
+			</div>	
+				</form>
+					<form name="frm" id="reviewForm" action="/product/detail#box2">
 					<div id="list">
 						<button>목록</button>
 					</div>
@@ -136,8 +151,15 @@
 							<button id='modalRegisterBtn'>등록</button>
 							</div>
 					</div>
+					<input type="hidden" name="reviewno" value="${reviewVO.reviewno}">
+					<input type="hidden" name="prodno" value="${reviewVO.prodno}">
+					<input type='hidden' name='pageNum' value='${cri.pageNum}'>
+					<input type='hidden' name='amount' value='${cri.amount}'>
+					<input type='hidden' name='type' value='${cri.type}'> 
+					<input type='hidden' name='keyword' value='${cri.keyword}'>
 					</form>
 		</div>
+		
 		<form id="otherDetail" action="/review/review_detail">
 				<div id="box2">
 					<table table frame="above">
@@ -501,6 +523,128 @@ $(document).ready(function(){
 		});
 	})();
 });
+</script>
+<script type="text/javascript" src="/resources/js/love.js"></script>
+<script>
+	$(document).ready(function(){
+		lForm =$("#loveForm");
+		var reviewno= '<c:out value="${reviewVO.reviewno}"/>';
+		var id;
+		<sec:authorize access="isAuthenticated()">
+		id = "<sec:authentication property='principal.username' />";
+		</sec:authorize>
+		<sec:authorize access="isAnonymous()">
+		if("${loginUser.id}"){
+			id = "${loginUser.id}";
+		}else { id = "x"; }
+		</sec:authorize>
+		var loveDiv = $(".love-body");	//하트 들어오는 div
+		var countDiv = $(".loveCount");	//하트 총 갯수 들어오는 div
+		
+		showlove();
+		lovecount();
+		
+		//유저의 하트 가져오기
+		function showlove(){
+			var love = {
+				reviewno: reviewno,
+				id: id
+			};
+			loveService.getList(love, 
+				function(list){
+					console.log(list)
+					
+					var str="";
+					
+					//좋아요를 누른 흔적이 있는 유저일때
+					if(list){
+						//검정이나 빨강하트
+						if(list.loveyn == 1){
+							str += "<img class='loveBtn' data-loveyn='"+list.loveyn+"' data-loveno='"+list.loveno+"' style='width:30px; height:30px' src='/resources/image/love_full.png'>";
+						}else{
+							str += "<img class='loveBtn' data-loveyn='"+list.loveyn+"' data-loveno='"+list.loveno+"' style='width:30px; height:30px' src='/resources/image/love.png'>";
+						}
+					//누른적 없으면 걍 검정
+					}else{
+						str += "<img class='loveBtn' style='width:30px; height:30px' src='/resources/image/love.png'>";
+					}
+					
+					loveDiv.html(str);
+					
+				});//end function
+		}//end showList
+		
+		//하트총 개수 가져오기
+		function lovecount(){
+			
+			loveService.getCount({reviewno:reviewno}, 
+				function(count){
+					console.log(count)
+					
+					var str="";
+					
+					str += "<span>"+count+"</span>"
+					
+					countDiv.html(str);
+					
+				});//end function
+		}//end
+		
+		//하트 누르면
+		$('.love-body').on("click", ".loveBtn", function(e){
+			e.preventDefault();
+			var loveyn =  $(this).data("loveyn");
+			var loveno =  $(this).data("loveno");
+			console.log("============"+loveyn+", "+id+", "+loveno+", "+reviewno)
+		//아이디 없을 때
+		if(id == "x"){
+			alert("로그인이 필요합니다.");
+		//누른 적 있을 때
+		}else if(loveno){
+			if(loveyn == 1){
+				var love = {
+					reviewno: reviewno,
+					id : id,
+					loveno: loveno,
+					loveyn : loveyn
+				};
+				loveService.love(love, function(result){	
+					showlove();
+					lovecount();
+				})
+				
+			//비었으면
+			}else{
+				var love = {
+					reviewno: reviewno,
+					id : id,
+					loveno: loveno,
+					loveyn : loveyn
+				};
+				loveService.love(love, function(result){
+					showlove();
+					lovecount();
+				})
+			}
+		//첨 눌렀을 때
+		}else{
+				var love = {
+					reviewno: reviewno,
+					id : id,
+					loveno: loveno,
+					loveyn : loveyn
+				};
+				loveService.add(love, function(result){	
+					showlove();
+					lovecount();
+				})
+				loveyn=1;
+		}
+			
+		});
+		
+	});
+
 </script>
 	</div>
 </body>

@@ -64,3 +64,8 @@
   width: 240px;
   margin-bottom : 50px;
 }
+
+#reviewform .love{
+	position : relative;
+    top: 3.5px;
+}

@@ -18,7 +18,9 @@ public class ReviewVO {
     private Long count;
     private String best;
     private String name_kr;
+    private String image;
     private Long replyCount;
+    private Long loveCount;
     
     private List<AttachVO> attachList;
     private AttachVO attachVO;

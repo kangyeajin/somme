@@ -76,30 +76,6 @@
 			<input type='hidden' name='type' value='<c:out value="${param.type}"/>'>
 			<input type='hidden' name='keyword' value='<c:out value="${param.keyword}"/>'>
 			</form>
-			<span class="title">댓글</span>
-					<div id="replyDiv">
-							<hr>
-							<div class="panel-body">
-								<!-- 댓글 들어옴 -->
-							</div>
-							<div class="panel-footer">
-								<!-- 댓글 페이지 번호 들어올거임 -->
-							</div>
-							<div id="textareaDiv">
-							<!-- 로그인유저 -->
-							<sec:authorize access="isAuthenticated()">
-							<span><sec:authentication property="principal.username" /></span>
-								<input type="hidden" name='replyer' value="<sec:authentication property="principal.username" />">
-								<textarea id="replyContent" name='reply' placeholder="댓글을 입력해 주세요"></textarea>
-							</sec:authorize>
-							<!-- 로그아웃유저 -->
-							<sec:authorize access="isAnonymous()">
-								<span>아이디</span>
-								<textarea id="replyContent" name="replyContent" placeholder="댓글을 작성하려면 로그인 해주세요" readonly></textarea>
-							</sec:authorize>
-							<button id='modalRegisterBtn'>등록</button>
-							</div>
-					</div>
 		</div>
 
 

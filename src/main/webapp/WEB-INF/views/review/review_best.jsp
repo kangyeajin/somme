@@ -42,17 +42,26 @@
 					</ul>
 				</div>
 			</aside>
-			<form name="frm" method="post">
+			<form name="frm">
 				<section id="right">
 					<div class="review_title">
 						<p>베스트 리뷰</p>
 					</div>
 					<div id="review_list">
+					<sec:authorize access="isAuthenticated()">
+				<input type="hidden" name='id' value="<sec:authentication property="principal.username" />">
+			</sec:authorize>
+			<!-- 로그아웃유저 -->
+			<sec:authorize access="isAnonymous()">
+				<c:if test="${not empty loginUser}">
+				<input type="hidden" name='id' value="${loginUser.id}">
+				</c:if>
+			</sec:authorize>
 						<c:forEach var="BestreviewList" items="${BestreviewList}" varStatus="status">
-								<input type="hidden" name="prodno" value="${BestreviewList.prodno}">
+								<%-- <input type="hidden" name="prodno" value="${BestreviewList.prodno}"> --%>
 							<div class="review">
 							<div data-aos="fade-up" data-aos-duration="500" data-aos-offset="100" data-aos-delay="200">
-								<a href="review_best_detail?reviewno=${BestreviewList.reviewno}"> 
+								<a class="detail" href="${BestreviewList.reviewno}"> 
 							<c:url value="/display" var="img">
 							<c:param name="fileName" value="${BestreviewList.attachVO.uploadPath}/${BestreviewList.attachVO.uuid}_${BestreviewList.attachVO.fileName}" />
 						  </c:url>
@@ -61,10 +70,16 @@
 									<img src="/resources/image/${BestreviewList.img}">
 								</c:when>
 								<c:otherwise>
-									<img class="pop" src="${img}">
+									<img class="pop" src="${img}" onerror="this.src='/resources/image/${BestreviewList.image}'">
 								</c:otherwise>
 							</c:choose>
-									<figcaption style="padding-top:25px;">${BestreviewList.name_kr}</figcaption>
+									<figcaption><strong>${BestreviewList.name_kr}</strong>
+									<p><img style="width:30px; height:30px;" src="/resources/image/lovew.png">
+										${BestreviewList.loveCount}
+									<img style="width:30px; height:30px;" src="/resources/image/replyw.png">
+										${BestreviewList.replyCount}</p>
+									</figcaption>
+									
 								</a>
 							</div>
 							</div>
@@ -80,6 +95,17 @@
 	</div>
 <script>
 	AOS.init();
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var form = $('form');
+	$('.detail').on('click', function(e){
+		e.preventDefault();
+		form.append("<input type='hidden' name='reviewno' value='"+$(this).attr("href")+"'>");
+		form.attr("action","/review/review_best_detail"); //action 수정
+		form.submit();
+	});
+});
 </script>
 </body>
 </html>

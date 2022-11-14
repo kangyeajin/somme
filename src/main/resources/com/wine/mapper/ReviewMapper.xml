@@ -15,12 +15,22 @@
 		<result column="subject" property="subject" jdbcType="VARCHAR" />
 		<result column="img" property="img" jdbcType="VARCHAR" />
 		<result column="name_kr" property="name_kr" jdbcType="VARCHAR" />
+		<result column="image" property="image" jdbcType="VARCHAR" />
+		<result column="replyCount" property="replyCount" jdbcType="VARCHAR" />
+		<result column="loveCount" property="loveCount" jdbcType="VARCHAR" />
 		<collection property="attachVO" resultMap="AttachVO" />
 	</resultMap>
 	<select id="getList" resultMap="ReviewVO">
-		select * from review_view R
+		select DISTINCT R.reviewno, name_KR, IMG, UUID, UPLOADPATH, FILENAME, FILETYPE, image,
+	    (select count(loveno) from love L where loveyn= 1 and R.reviewno = L.reviewno) loveCount,
+	    (select count(replyno) from reply Re where R.reviewno = Re.reviewno) replyCount 
+           from review_view R
                 LEFT JOIN attach A 
-                ON R.reviewno = A.reviewno 
+                ON R.reviewno = A.reviewno
+                LEFT JOIN love L
+                ON R.reviewno = L.reviewno
+                LEFT JOIN reply Re
+                ON R.reviewno = Re.reviewno 
         where best =2 order by R.reviewno desc
 	</select>
 	<sql id="criteria">
@@ -133,9 +143,10 @@
 	</select>
 	<select id="getListA" resultType="com.wine.model.ReviewVO">
 		<![CDATA[
-		select reviewno, prodno, subject, img, id, indate, count, best, name_kr
+		select reviewno, prodno, subject, img, id, indate, count, best, name_kr, loveCount
 		from(select /*+INDEX_DESC(R PK_REVIEW)*/
-			rownum rn, reviewno, R.prodno, subject, img, id, indate, count, best, name_kr
+			rownum rn, reviewno, R.prodno, subject, img, id, indate, count, best, name_kr,
+            (select count(loveno) from love L where R.reviewno = L.reviewno) loveCount
 			from review R LEFT JOIN product P ON R.prodno = P.prodno
 			where
 	]]>	<include refid="criteria2"></include>

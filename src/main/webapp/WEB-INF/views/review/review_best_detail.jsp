@@ -74,15 +74,36 @@
 							<td width="100px">${reviewVO.count}</td>
 						</tr>
 					</table>
-					<div id="box1-1">
+					<div id="box1-1" class="uploadResult">
+						<ul>
+						</ul>
 						<c:if test="${not empty reviewVO.img}">
 							<img src="/resources/image/${reviewVO.img}">
 						</c:if>
-						<div id="box1-1-text" style="line-height:120%">${fn:replace(reviewVO.content,replaceChar,"<br/>")}</div>
+						<div id="box1-1-text" style="line-height: 120%">${fn:replace(reviewVO.content,replaceChar,"<br/>")}</div>
 					</div>
 
 				</div>
 			</form>
+			<form id="loveForm">
+			<sec:authorize access="isAuthenticated()">
+				<input type="hidden" name='id' value="<sec:authentication property="principal.username" />">
+			</sec:authorize>
+			<!-- 로그아웃유저 -->
+			<sec:authorize access="isAnonymous()">
+				<c:if test="${not empty loginUser}">
+				<input type="hidden" name='id' value="${loginUser.id}">
+				</c:if>
+			</sec:authorize>
+			
+					<div class="love-body">
+						<!-- 하트들어옴 -->
+					</div>
+					<div class="loveCount">
+						<!-- 총개수 들어옴 -->
+					</div>
+					
+				</form>
 			<form id="reviewForm">
 					<span class="title">댓글</span>
 					<div id="replyDiv">
@@ -125,6 +146,43 @@
 
 		<!-- 푸터 -->
 	<%@ include file="../include/footer.jsp"%>
+	<script>
+$(document).ready(function(){
+	(function(){
+		var reviewno = '<c:out value="${reviewVO.reviewno}"/>';
+		
+		$.getJSON("/review/getAttachList", {reviewno: reviewno}, function(arr){
+	        
+		       console.log(arr);
+		       
+		       var str = "";
+		       
+		       $(arr).each(function(i, attach){
+		       
+		         //image type
+		         if(attach.fileType){
+		           var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/"+attach.uuid +"_"+attach.fileName);
+		           
+		           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
+		           str += "<img src='/display?fileName="+fileCallPath+"'>";
+		           str += "</div>";
+		           str +"</li>";
+		         }else{
+		             
+		           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
+		           str += "<span> "+ attach.fileName+"</span><br/>";
+		           str += "<img src='/resources/image/file.png'></a>";
+		           str += "</div>";
+		           str +"</li>";
+		         }
+		       });
+		       
+		       $(".uploadResult ul").html(str);
+		       
+		});
+	})();
+});
+</script>
 <script type="text/javascript" src="/resources/js/reply.js"></script>
 	<script>
 	$(document).ready(function(){
@@ -347,11 +405,132 @@
 		}else
 			return false;
 	});
-	
+
 });
-	
 	var csrfHeaderName ="${_csrf.headerName}"; 
     var csrfTokenValue="${_csrf.token}";
+</script>
+<script type="text/javascript" src="/resources/js/love.js"></script>
+<script>
+	$(document).ready(function(){
+		lForm =$("#loveForm");
+		var reviewno= '<c:out value="${reviewVO.reviewno}"/>';
+		var id;
+		<sec:authorize access="isAuthenticated()">
+		id = "<sec:authentication property='principal.username' />";
+		</sec:authorize>
+		<sec:authorize access="isAnonymous()">
+		if("${loginUser.id}"){
+			id = "${loginUser.id}";
+		}else { id = "x"; }
+		</sec:authorize>
+		var loveDiv = $(".love-body");	//하트 들어오는 div
+		var countDiv = $(".loveCount");	//하트 총 갯수 들어오는 div
+		
+		showlove();
+		lovecount();
+		
+		//유저의 하트 가져오기
+		function showlove(){
+			var love = {
+				reviewno: reviewno,
+				id: id
+			};
+			loveService.getList(love, 
+				function(list){
+					console.log(list)
+					
+					var str="";
+					
+					//좋아요를 누른 흔적이 있는 유저일때
+					if(list){
+						//검정이나 빨강하트
+						if(list.loveyn == 1){
+							str += "<img class='loveBtn' data-loveyn='"+list.loveyn+"' data-loveno='"+list.loveno+"' style='width:30px; height:30px' src='/resources/image/love_full.png'>";
+						}else{
+							str += "<img class='loveBtn' data-loveyn='"+list.loveyn+"' data-loveno='"+list.loveno+"' style='width:30px; height:30px' src='/resources/image/love.png'>";
+						}
+					//누른적 없으면 걍 검정
+					}else{
+						str += "<img class='loveBtn' style='width:30px; height:30px' src='/resources/image/love.png'>";
+					}
+					
+					loveDiv.html(str);
+					
+				});//end function
+		}//end showList
+		
+		//하트총 개수 가져오기
+		function lovecount(){
+			
+			loveService.getCount({reviewno:reviewno}, 
+				function(count){
+					console.log(count)
+					
+					var str="";
+					
+					str += "<span>"+count+"</span>"
+					
+					countDiv.html(str);
+					
+				});//end function
+		}//end
+		
+		//하트 누르면
+		$('.love-body').on("click", ".loveBtn", function(e){
+			e.preventDefault();
+			var loveyn =  $(this).data("loveyn");
+			var loveno =  $(this).data("loveno");
+			console.log("============"+loveyn+", "+id+", "+loveno+", "+reviewno)
+		//아이디 없을 때
+		if(id == "x"){
+			alert("로그인이 필요합니다.");
+		//누른 적 있을 때
+		}else if(loveno){
+			if(loveyn == 1){
+				var love = {
+					reviewno: reviewno,
+					id : id,
+					loveno: loveno,
+					loveyn : loveyn
+				};
+				loveService.love(love, function(result){	
+					showlove();
+					lovecount();
+				})
+				
+			//비었으면
+			}else{
+				var love = {
+					reviewno: reviewno,
+					id : id,
+					loveno: loveno,
+					loveyn : loveyn
+				};
+				loveService.love(love, function(result){
+					showlove();
+					lovecount();
+				})
+			}
+		//첨 눌렀을 때
+		}else{
+				var love = {
+					reviewno: reviewno,
+					id : id,
+					loveno: loveno,
+					loveyn : loveyn
+				};
+				loveService.add(love, function(result){	
+					showlove();
+					lovecount();
+				})
+				loveyn=1;
+		}
+			
+		});
+		
+	});
+
 </script>
 <script type="text/javascript">
 $(document).ready(function(){

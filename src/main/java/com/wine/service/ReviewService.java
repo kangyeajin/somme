@@ -30,4 +30,5 @@ public interface ReviewService {
 	
 	//첨부파일 목록 가져오기
 	public List<AttachVO> gettAttachList(Long reviewno);
+	
 }

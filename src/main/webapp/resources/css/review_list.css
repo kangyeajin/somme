@@ -68,13 +68,17 @@ section#right .review figcaption{
   top: 0; left: 0;
 
   color: #fff; text-align: center;
-  line-height: 200px;
+  line-height: 40px;
+  padding-top:80px;
 
   opacity: 0; /*처음엔 안보이고 */
 
   transition: 0.4s;
 }
-
+figcaption p img{
+	width:30px;
+	height:30px;
+}
 section#right .review a:hover figcaption, .review a:focus figcaption{
   /* 마우스를 올리면 보이게 처리 */
   opacity: 0.8;

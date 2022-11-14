@@ -232,3 +232,9 @@ th, td {
 	margin-left:30px;
 	color:#7e7e7e;
 }
+
+#loveForm #love{
+	position: relative;
+	top:70px;
+	left:400px;
+}
