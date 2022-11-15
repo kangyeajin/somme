@@ -9,7 +9,7 @@
 
 강예진 | 김하늘 | 최지은 | 홍미지
 ---|---|---|---|
-![예진](https://user-images.githubusercontent.com/108658971/201602638-4fdc5ed9-6a13-41d0-9263-55b4c7396176.png)|이미지|![지은](https://user-images.githubusercontent.com/108658971/201602234-5c09e1b4-9a28-4050-9626-7909ef901885.png)|![미지](https://user-images.githubusercontent.com/108658971/201602230-6d2ec90b-5f72-4c2c-a4cc-a0bcc23a9cd1.png)
+![예진](https://user-images.githubusercontent.com/108658971/201602638-4fdc5ed9-6a13-41d0-9263-55b4c7396176.png)|![하늘](https://user-images.githubusercontent.com/118153241/201795460-999efd95-bcd9-481a-bcab-70e3a566c2c6.jpg)|![지은](https://user-images.githubusercontent.com/108658971/201602234-5c09e1b4-9a28-4050-9626-7909ef901885.png)|![미지](https://user-images.githubusercontent.com/108658971/201602230-6d2ec90b-5f72-4c2c-a4cc-a0bcc23a9cd1.png)
 
 ## 📌 프로젝트 설명
 프로젝트명 'Somme'은 와인을 보관하며 안전성을 보증해주는 직업에서 차용한 이름입니다.<br>
