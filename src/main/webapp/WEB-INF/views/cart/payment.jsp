@@ -116,8 +116,7 @@
                      placeholder="이름을 입력해주세요">
             </li>
             <li id="tel">
-            	<fmt:formatNumber var="phone_num" value="${AddrList.phone}" pattern="000,0000,0000"/>
-               <input type="tel" class="tel" name="tel" style="width: 200px;" value='<c:out value = "${fn:replace(phone_num, ',', '-')}"/>' 
+               <input type="tel" class="tel" name="tel" style="width: 200px;" value='<c:out value = "${AddrList.phone}"/>' 
                       placeholder="전화번호를 입력해주세요">
             </li>
 
