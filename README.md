@@ -54,7 +54,7 @@
 **인트로** | **로그인** | **메인화면**
 이미지 | 이미지 | 이미지
 **상품 목록** | **베스트 리뷰 목록** | **리뷰 상세**
-이미지 | 이미지 | 이미지
+![주문 상세](https://user-images.githubusercontent.com/108658971/201819415-9132275b-688a-499c-92af-81bf1f8c7b9b.png) | ![장바구니](https://user-images.githubusercontent.com/108658971/201819418-d2aedf78-99df-4b98-a0bb-f76e093e1f21.png) | ![주문목록](https://user-images.githubusercontent.com/108658971/201819420-87e6f548-c10b-480f-8965-eddeaaa32232.png)
 **주문 목록** | **장바구니** | **주문 상세**
 ![취향별추천](https://user-images.githubusercontent.com/108658971/201817809-baa6a897-84c9-4c4f-9a23-97bf77085c4d.png) | ![실시간채팅](https://user-images.githubusercontent.com/108658971/201817304-98fa01d8-d011-4bec-b2a2-a5206a7a7ce2.png) | ![관리자페이지](https://user-images.githubusercontent.com/108658971/201817309-d53864c0-1638-46d3-bb87-2f8f77c23f66.png)
 **취향별 추천** | **채팅** | **관리자**
