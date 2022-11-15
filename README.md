@@ -86,23 +86,27 @@
 <details>
     <summary>홍미지</summary>
 
-* Intro
-    *  연령 확인 안내 페이지
+### Intro<br>
+![인트로](https://user-images.githubusercontent.com/118153241/201851535-dbf901b1-7486-4d16-9c01-31084a03ebb8.gif)
+* 연령 확인 안내 페이지
     
-* Search
-    *  상품 검색 기능(한글명, 영문명)
+### Search<br>
+![검색](https://user-images.githubusercontent.com/118153241/201851548-6dce2397-6ec3-444a-87f5-658943fb9864.gif)
+* 상품 검색 기능(한글명, 영문명)
     
-* ADMIN > Product
-    *  상품 등록 시 필수 정보 유효성 검사
-    *  MultipartFile을 이용한 상품 이미지 업로드
-    *  베스트와인으로 설정 시 메인페이지에 상품 등록 
-    *  상품 수정 기능
-    *  상품 전체 및 선택 삭제 기능
-    *  상품명/상품명+영문명/종류/국가에 따른 검색 기능 (대소문자 구분 없음)
-    *  페이징 처리 기능
+### ADMIN > Product<br>
+![관리자상품](https://user-images.githubusercontent.com/118153241/201851528-0979c5b9-189a-4dd8-9b02-148df2680ccb.gif)
+* 상품 등록 시 필수 정보 유효성 검사
+* MultipartFile을 이용한 상품 이미지 업로드
+* 베스트와인으로 설정 시 메인페이지에 상품 등록 
+* 상품 수정 기능
+* 상품 전체 및 선택 삭제 기능
+* 상품명/상품명+영문명/종류/국가에 따른 검색 기능 (대소문자 구분 없음)
+* 페이징 처리 기능
     
-* ETC
-    *  챗봇 활용해 사용자들끼리 다양한 정보 공유 가능
+### ETC<br>
+![채팅](https://user-images.githubusercontent.com/118153241/201851544-c10d0776-efaf-407b-882d-53e4f521f496.gif)
+* 챗봇 활용해 사용자들끼리 다양한 정보 공유 가능
 </details>
 
 <hr>
