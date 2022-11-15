@@ -11,11 +11,7 @@
 <div class="container">
 <h4>실시간 채팅으로 대화를 나눠보세요!</h4>
 
-<!-- 테스트 채팅 -->
-<!-- <iframe src="https://service.dongledongle.com/Somme" frameborder="0" width="100%" height="800vh"></iframe> -->
-
-<!-- 나중에 쓸 진짜 채팅 -->
-<iframe src="https://service.dongledongle.com/WineSomme" frameborder="0" width="100%" height="800vh"></iframe>
+<iframe src="https://service.dongledongle.com/Wineshop" frameborder="0" width="100%" height="800vh"></iframe>
 
 <div class="buttons">
 <input type="submit" id="btn" value="뒤로가기" onClick="history.back()">
