@@ -12,6 +12,7 @@
 <title>Somme</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/sidebar_list.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/notice.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/scrollbar.css">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <style>
 @font-face {
@@ -27,6 +28,7 @@
 
 </head>
 <body>
+<div class="scrollBar">
 	<!-- header-->
 	<%@ include file="../include/header.jsp"%>
 
@@ -120,6 +122,7 @@
 
 	<!-- 푸터 -->
 	<%@ include file="../include/footer.jsp"%>
+	</div>
 <script>
 
 $(document).ready(function(){
