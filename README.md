@@ -49,8 +49,7 @@
 
 ## ✨ 데모 화면
 
-
-이미지 | 이미지 | 이미지
+<img src = "https://user-images.githubusercontent.com/118153241/201815134-109365e0-a534-489a-b693-9a62599a7662.JPG" width="100%" height="40%"> | <img src = "https://user-images.githubusercontent.com/118153241/201815134-109365e0-a534-489a-b693-9a62599a7662.JPG" width="100%" height="40%"> | <img src = "https://user-images.githubusercontent.com/118153241/201815134-109365e0-a534-489a-b693-9a62599a7662.JPG" width="100%" height="40%">
 :---:|:---:|:---:|
 **인트로** | **로그인** | **메인화면**
 이미지 | 이미지 | 이미지
