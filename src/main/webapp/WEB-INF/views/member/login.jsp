@@ -40,11 +40,6 @@ input[type="submit"]:hover {
 			<h2>로그인</h2>
   
 			<div id="login">
-				<div id="switch">
-					<p>
-						<a href="/admin/main">관리자</a>
-					</p>
-				</div>
 				<form role="form" method="post" action="/login" name="formm">
 				<input type="hidden" name="prodno" value='<c:out value="${prodno}"/>' /> 
 					<fieldset class="login_box">
