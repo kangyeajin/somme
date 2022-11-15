@@ -337,7 +337,7 @@
                   alert(msg);
                   
                   //operForm.add()
-                  operForm.attr("action","/order/pay").submit();
+                  //operForm.attr("action","/order/pay").submit();
                }
             });
          }
