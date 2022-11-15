@@ -109,7 +109,7 @@
     
 ### ETC<br>
 ![채팅](https://user-images.githubusercontent.com/118153241/201851544-c10d0776-efaf-407b-882d-53e4f521f496.gif)
-* 챗봇 활용해 사용자들끼리 다양한 정보 공유 가능
+* 채팅 API 활용해 사용자들끼리 다양한 정보 공유 가능
 </details>
 
 <hr>
