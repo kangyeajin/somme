@@ -64,24 +64,24 @@
     <summary>김하늘</summary>
 
 ### 회원가입
-![회원가입22](https://user-images.githubusercontent.com/118319662/202063616-c51b43a7-1e93-4988-b8a7-fd75678edaca.gif)
+![가입33](https://user-images.githubusercontent.com/118319662/202108709-aeb1aadd-c7fe-4501-9a29-ae71314de23d.gif)
 *  회원가입 기능
 *  문자메세지를 통한 본인인증 기능
 <br>
 
 ### 로그인
-![로그인22](https://user-images.githubusercontent.com/118319662/202063620-f2bed593-08eb-4ba1-a6a2-6e13fa5fc6b0.gif)
+![로그인22](https://user-images.githubusercontent.com/118319662/202108712-7218785f-baf6-4c1e-ba3f-62cfd237116a.gif)
 *  카카오 로그인 api를 활용한 로그인 기능
 *  일반 로그인/관리자 로그인 구분
 <br>
 
 ### 아이디/비밀번호 찾기
-![아이디비번찾기](https://user-images.githubusercontent.com/118319662/202063613-452d8a72-bd4b-4b05-acd8-01789a485111.gif)
+![아디비번22](https://user-images.githubusercontent.com/118319662/202108697-a83c8e83-2055-4a59-883e-3baa37408d55.gif)
 *  회원 정보를 입력하여 아이디/비밀번호 찾기
 <br>
 
 ### 마이페이지>회원정보
-![회원정보조회22](https://user-images.githubusercontent.com/118319662/202063618-3e281124-c757-4999-9828-70780df9b8ca.gif)
+![수정22](https://user-images.githubusercontent.com/118319662/202108702-3482aed2-bc88-4d26-81f5-fc129d2a319a.gif)
 *  회원의 가입 정보 조회기능
 *  회원정보 수정/탈퇴 시 비밀번호 확인
 *  회원정보 수정/퇴 기능
