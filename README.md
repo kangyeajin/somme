@@ -64,7 +64,7 @@
     <summary>김하늘</summary>
     
 ### 회원가입
-![product1](https://user-images.githubusercontent.com/80384316/201865323-1a3a8e2e-4440-4535-a1bf-5033a43c60b8.gif)
+![1](https://user-images.githubusercontent.com/118319662/202059840-12649839-c625-458e-98dc-289f0f8afc46.PNG)
 *  회원가입 기능
 *  문자메세지를 통한 본인인증 기능
 <br>
