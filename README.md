@@ -84,7 +84,7 @@
 ![수정22](https://user-images.githubusercontent.com/118319662/202108702-3482aed2-bc88-4d26-81f5-fc129d2a319a.gif)
 *  회원의 가입 정보 조회기능
 *  회원정보 수정/탈퇴 시 비밀번호 확인
-*  회원정보 수정/퇴 기능
+*  회원정보 수정/탈퇴 기능
 <br>
 
 </details>
