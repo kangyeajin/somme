@@ -15,9 +15,9 @@
   <style>
     @font-face {
       font-family: 'RIDIBatang';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+      src: url('/resources/fonts/RIDIBatang.otf') format('woff');
       font-family: 'Molle';
-      src: url('fonts/Molle-Italic.ttf') format('truetype');
+      src: url('/resources/fonts/Molle-Italic.ttf') format('truetype');
     }
 .pop{
 	width:1050px;

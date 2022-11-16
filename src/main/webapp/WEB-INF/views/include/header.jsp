@@ -6,7 +6,14 @@
 <script src='<c:url value="/resources/js/jquery.js"/>'></script>
 
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
-
+<style>
+	@font-face {
+      font-family: 'RIDIBatang';
+      src: url('/resources/fonts/RIDIBatang.otf') format('woff');
+      font-family: 'Molle';
+      src: url('/resources/fonts/Molle-Italic.ttf') format('truetype');
+    }
+</style>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 
