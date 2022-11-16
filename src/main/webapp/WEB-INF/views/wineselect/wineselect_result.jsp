@@ -12,15 +12,14 @@
 <link rel="stylesheet" href="/resources/css/wineselect_result.css">
 <title>Somme</title>
 <style>
-@font-face {
-	font-family: 'RIDIBatang';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff')
-		format('woff');
-	font-family: 'Molle';
-	src: url('fonts/Molle-Italic.ttf') format('truetype');
-}
-
+	@font-face {
+      font-family: 'Molle';
+      src: url('/resources/fonts/Molle-Italic.ttf') format('truetype');
+    }
+    @font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+	}
 </style>
 <script type="text/javascript">
 	history.replaceState({}, null, location.pathname);

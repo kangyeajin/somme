@@ -21,14 +21,15 @@
 	href="/resources/css/review_detail.css">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <style>
-@font-face {
-	font-family: 'RIDIBatang';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff')
-		format('woff');
-	font-family: 'Molle';
-	src: url('fonts/Molle-Italic.ttf') format('truetype');
-}
+	@font-face {
+      font-family: 'Molle';
+      src: url('/resources/fonts/Molle-Italic.ttf') format('truetype');
+    }
+    @font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+	}
+
 .bold{ font-weight: bold;}
 </style>
 </head>
