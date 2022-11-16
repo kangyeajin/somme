@@ -71,6 +71,9 @@
 							</tr>
 						</c:forEach>
 					</table>
+					<c:if test="${empty noticeList}">
+					<p style='color:#898989; margin:70px 90px 0 0;'> 게시글이 없습니다.</p>
+				</c:if>
 				</div>
 			</div>
 		</form>

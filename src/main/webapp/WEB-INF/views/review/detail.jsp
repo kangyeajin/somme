@@ -248,8 +248,11 @@
 							<td><fmt:formatDate value="${reviewList.indate}" pattern="yyyy-MM-dd" type="date"/></td>
 							<td>${reviewList.count}</td>
 						</tr>
-					</c:forEach>
+				</c:forEach>
             </table>
+				<c:if test="${empty reviewList}">
+					<br><br><br><p style='color:#898989;'>게시글이 없습니다.</p>
+				</c:if>
       </form>
          <form id='actionForm' action="/product/detail#box2" method='get'>
             <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>

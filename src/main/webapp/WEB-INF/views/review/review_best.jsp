@@ -84,6 +84,9 @@
 							</div>
 							</div>
 						</c:forEach>
+						<c:if test="${empty BestreviewList}">
+					<p style='color:#898989; margin:180px 0 0 300px;'>아직 베스트 리뷰가 없습니다.</p>
+				</c:if>
 					</div>
 				</section>
 			</form>
