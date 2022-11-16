@@ -64,24 +64,24 @@
     <summary>김하늘</summary>
 
 ### 회원가입
-https://user-images.githubusercontent.com/118319662/202062518-d2790b34-240d-465f-8367-2dd45ee0ee5c.mp4
+![회원가입22](https://user-images.githubusercontent.com/118319662/202063616-c51b43a7-1e93-4988-b8a7-fd75678edaca.gif)
 *  회원가입 기능
 *  문자메세지를 통한 본인인증 기능
 <br>
 
 ### 로그인
-https://user-images.githubusercontent.com/118319662/202062524-559ead94-7a34-40fa-919d-d1ab62b599f0.mp4
+![로그인22](https://user-images.githubusercontent.com/118319662/202063620-f2bed593-08eb-4ba1-a6a2-6e13fa5fc6b0.gif)
 *  카카오 로그인 api를 활용한 로그인 기능
 *  일반 로그인/관리자 로그인 구분
 <br>
 
 ### 아이디/비밀번호 찾기
-https://user-images.githubusercontent.com/118319662/202062526-c2523655-0954-42e0-8df0-8d717089e65b.mp4
+![아이디비번찾기](https://user-images.githubusercontent.com/118319662/202063613-452d8a72-bd4b-4b05-acd8-01789a485111.gif)
 *  회원 정보를 입력하여 아이디/비밀번호 찾기
 <br>
 
 ### 마이페이지>회원정보
-https://user-images.githubusercontent.com/118319662/202062530-abf85134-4712-4384-8a8a-f04cb20a5ed1.mp4
+![회원정보조회22](https://user-images.githubusercontent.com/118319662/202063618-3e281124-c757-4999-9828-70780df9b8ca.gif)
 *  회원의 가입 정보 조회기능
 *  회원정보 수정/탈퇴 시 비밀번호 확인
 *  회원정보 수정/틸퇴 기능
