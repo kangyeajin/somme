@@ -135,7 +135,7 @@
 ### ADMIN > Product<br>
 ![관리자상품](https://user-images.githubusercontent.com/118153241/201851528-0979c5b9-189a-4dd8-9b02-148df2680ccb.gif)
 * 상품 등록 시 필수 정보 유효성 검사
-* MultipartFile을 이용한 상품 이미지 업로드
+* 상품 이미지 업로드
 * 베스트와인으로 설정 시 메인페이지에 상품 등록 
 * 상품 수정 기능
 * 상품 전체 및 선택 삭제 기능
