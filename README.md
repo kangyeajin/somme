@@ -119,7 +119,7 @@
     
 ### 메인
 * 지도 API활용 매장 위치 확인
-
+<br>
 </details>
 <details>
     <summary>홍미지</summary>
