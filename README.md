@@ -70,7 +70,7 @@
 <br>
 
 ### 로그인
-![product1](https://user-images.githubusercontent.com/80384316/201865323-1a3a8e2e-4440-4535-a1bf-5033a43c60b8.gif)
+![1](https://user-images.githubusercontent.com/118319662/202059840-12649839-c625-458e-98dc-289f0f8afc46.PNG)
 *  카카오 로그인 api를 활용한 로그인 기능
 *  일반 로그인/관리자 로그인 구분
 <br>
