@@ -64,7 +64,17 @@
     <summary>김하늘</summary>
 
 ### 회원가입
-![2](https://user-images.githubusercontent.com/118319662/202060197-35b92afe-2c68-41a9-bbd9-a82aa1bf7e2e.PNG)
+https://user-images.githubusercontent.com/118319662/202062518-d2790b34-240d-465f-8367-2dd45ee0ee5c.mp4
+
+
+https://user-images.githubusercontent.com/118319662/202062524-559ead94-7a34-40fa-919d-d1ab62b599f0.mp4
+
+
+https://user-images.githubusercontent.com/118319662/202062526-c2523655-0954-42e0-8df0-8d717089e65b.mp4
+
+
+https://user-images.githubusercontent.com/118319662/202062530-abf85134-4712-4384-8a8a-f04cb20a5ed1.mp4
+
 *  회원가입 기능
 *  문자메세지를 통한 본인인증 기능
 <br>
