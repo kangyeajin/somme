@@ -62,8 +62,31 @@
 </details>
 <details>
     <summary>김하늘</summary>
+    
+### 회원가입
+![product1](https://user-images.githubusercontent.com/80384316/201865323-1a3a8e2e-4440-4535-a1bf-5033a43c60b8.gif)
+*  회원가입 기능
+*  문자메세지를 통한 본인인증 기능
+<br>
 
-쓰세요
+### 로그인
+![product1](https://user-images.githubusercontent.com/80384316/201865323-1a3a8e2e-4440-4535-a1bf-5033a43c60b8.gif)
+*  카카오 로그인 api를 활용한 로그인 기능
+*  일반 로그인/관리자 로그인 구분
+<br>
+
+### 아이디/비밀번호 찾기
+![product1](https://user-images.githubusercontent.com/80384316/201865323-1a3a8e2e-4440-4535-a1bf-5033a43c60b8.gif)
+*  회원 정보를 입력하여 아이디/비밀번호 찾기
+<br>
+
+### 마이페이지>회원정보
+![product1](https://user-images.githubusercontent.com/80384316/201865323-1a3a8e2e-4440-4535-a1bf-5033a43c60b8.gif)
+*  회원의 가입 정보 조회기능
+*  회원정보 수정/탈퇴 시 비밀번호 확인
+*  회원정보 수정/틸퇴 기능
+<br>
+
 </details>
 <details>
     <summary>최지은</summary>
