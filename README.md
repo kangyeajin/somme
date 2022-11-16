@@ -62,9 +62,9 @@
 </details>
 <details>
     <summary>김하늘</summary>
-    
+
 ### 회원가입
-![1](https://user-images.githubusercontent.com/118319662/202059840-12649839-c625-458e-98dc-289f0f8afc46.PNG)
+![2](https://user-images.githubusercontent.com/118319662/202060197-35b92afe-2c68-41a9-bbd9-a82aa1bf7e2e.PNG)
 *  회원가입 기능
 *  문자메세지를 통한 본인인증 기능
 <br>
@@ -76,12 +76,12 @@
 <br>
 
 ### 아이디/비밀번호 찾기
-![product1](https://user-images.githubusercontent.com/80384316/201865323-1a3a8e2e-4440-4535-a1bf-5033a43c60b8.gif)
+![3](https://user-images.githubusercontent.com/118319662/202060205-e8470f58-545f-4753-af3b-5e62d8b49791.PNG)
 *  회원 정보를 입력하여 아이디/비밀번호 찾기
 <br>
 
 ### 마이페이지>회원정보
-![product1](https://user-images.githubusercontent.com/80384316/201865323-1a3a8e2e-4440-4535-a1bf-5033a43c60b8.gif)
+![34](https://user-images.githubusercontent.com/118319662/202060208-3d672bf2-6378-4476-928b-dc99d35ecdd7.PNG)
 *  회원의 가입 정보 조회기능
 *  회원정보 수정/탈퇴 시 비밀번호 확인
 *  회원정보 수정/틸퇴 기능
