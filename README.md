@@ -170,9 +170,8 @@
 
 
 ## 🔎 프로젝트 설치 및 실행 방법
-<!-- (배포메뉴얼)
-(ppt 링크 첨부)
- -->
+[somme 어플리케이션 배포.pptx](https://github.com/kangyeajin/somme/files/10018827/somme.pptx)
+<!-- (배포메뉴얼) (ppt 링크 첨부) -->
 
 ## 💻 개발 언어 및 활용 기술
 
