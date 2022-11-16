@@ -65,33 +65,23 @@
 
 ### 회원가입
 https://user-images.githubusercontent.com/118319662/202062518-d2790b34-240d-465f-8367-2dd45ee0ee5c.mp4
-
-
-https://user-images.githubusercontent.com/118319662/202062524-559ead94-7a34-40fa-919d-d1ab62b599f0.mp4
-
-
-https://user-images.githubusercontent.com/118319662/202062526-c2523655-0954-42e0-8df0-8d717089e65b.mp4
-
-
-https://user-images.githubusercontent.com/118319662/202062530-abf85134-4712-4384-8a8a-f04cb20a5ed1.mp4
-
 *  회원가입 기능
 *  문자메세지를 통한 본인인증 기능
 <br>
 
 ### 로그인
-![1](https://user-images.githubusercontent.com/118319662/202059840-12649839-c625-458e-98dc-289f0f8afc46.PNG)
+https://user-images.githubusercontent.com/118319662/202062524-559ead94-7a34-40fa-919d-d1ab62b599f0.mp4
 *  카카오 로그인 api를 활용한 로그인 기능
 *  일반 로그인/관리자 로그인 구분
 <br>
 
 ### 아이디/비밀번호 찾기
-![3](https://user-images.githubusercontent.com/118319662/202060205-e8470f58-545f-4753-af3b-5e62d8b49791.PNG)
+https://user-images.githubusercontent.com/118319662/202062526-c2523655-0954-42e0-8df0-8d717089e65b.mp4
 *  회원 정보를 입력하여 아이디/비밀번호 찾기
 <br>
 
 ### 마이페이지>회원정보
-![34](https://user-images.githubusercontent.com/118319662/202060208-3d672bf2-6378-4476-928b-dc99d35ecdd7.PNG)
+https://user-images.githubusercontent.com/118319662/202062530-abf85134-4712-4384-8a8a-f04cb20a5ed1.mp4
 *  회원의 가입 정보 조회기능
 *  회원정보 수정/탈퇴 시 비밀번호 확인
 *  회원정보 수정/틸퇴 기능
