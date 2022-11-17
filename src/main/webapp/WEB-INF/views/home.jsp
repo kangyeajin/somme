@@ -17,10 +17,13 @@
 	src:
 		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff')
 		format('woff');
+
+}
+
+@font-face{
 	font-family: 'Molle';
 	src: url('/resources/fonts/Molle-Italic.ttf') format('truetype');
 }
-
 #myVideo {
 	position: fixed;
 	right: 0;
