@@ -16,14 +16,14 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
 <style>
-@font-face {
-	font-family: 'RIDIBatang';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff')
-		format('woff');
-	font-family: 'Molle';
-	src: url('fonts/Molle-Italic.ttf') format('truetype');
-}
+	@font-face {
+      font-family: 'Molle';
+      src: url('/resources/fonts/Molle-Italic.ttf') format('truetype');
+    }
+    @font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+	}
 </style>
 </head>
 
@@ -84,6 +84,9 @@
 							</div>
 							</div>
 						</c:forEach>
+						<c:if test="${empty BestreviewList}">
+					<p style='color:#898989; margin:180px 0 0 300px;'>아직 베스트 리뷰가 없습니다.</p>
+				</c:if>
 					</div>
 				</section>
 			</form>

@@ -17,14 +17,14 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <style>
-@font-face {
-	font-family: 'RIDIBatang';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff')
-		format('woff');
-	font-family: 'Molle';
-	src: url('fonts/Molle-Italic.ttf') format('truetype');
-}
+	@font-face {
+      font-family: 'Molle';
+      src: url('/resources/fonts/Molle-Italic.ttf') format('truetype');
+    }
+    @font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+	}
 
 body {
 	onload: "hidefield()";
@@ -90,6 +90,9 @@ body {
 								</tr>
 							</c:forEach>
 						</table>
+						<c:if test="${empty qnaList}">
+					<p style='color:#898989; margin:70px 90px 0 0;'> 게시글이 없습니다.</p>
+				</c:if>
 					</div>
 				</div>
 			</form>

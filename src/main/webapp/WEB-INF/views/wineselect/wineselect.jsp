@@ -11,7 +11,16 @@
 <link rel="stylesheet" href="/resources/css/wineselect.css">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/wineselect.js?ver=1"></script>
-
+<style>
+	@font-face {
+      font-family: 'Molle';
+      src: url('/resources/fonts/Molle-Italic.ttf') format('truetype');
+    }
+    @font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+	}
+</style>
 </head>
 <body>
 	<div id="wineselect">
