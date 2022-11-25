@@ -14,7 +14,7 @@
 <form action="WineshopServlet?command=id_send_sms" method="post" name="forrmm">
 
 		<c:if test="${phone == null}">
-		전화번호  <input type="text" name="phone">
+		전화번호  <input type="text" name="phone" placeholder="숫자만 입력해주세요">
 		<input type="submit" value="인증번호 요청" onclick="javascript: forrmm.action='send_sms';"><br><br>
 		</c:if>
 		<c:if test="${phone != null}">
