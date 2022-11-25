@@ -259,6 +259,11 @@ ORDER BY o.orderno DESC;
 
 commit;
 
+alter table payment drop primary key cascade;
+alter table product drop primary key cascade;
+alter table member drop primary key cascade;
+alter table order_detail drop primary key cascade;
+
 --insert
 
 insert into member(id,pwd,name) values('admin','$2a$10$Mx9rpJMkS0HzZZoriAHFfut3HuJKUo3ETpdYXd.PsGunDLGG6BwmG','°ü¸®ÀÚ');
